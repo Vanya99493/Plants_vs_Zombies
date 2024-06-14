@@ -53,6 +53,11 @@ namespace PlaygroundModule
                     _selectedCell.Activate();
                 }
             }
+            else
+            {
+                _selectedCell?.Deactivate();
+                _selectedCell = null;
+            }
         }
 
         private void Spawn(Cell cell)

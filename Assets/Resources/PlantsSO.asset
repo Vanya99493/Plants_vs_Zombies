@@ -13,5 +13,11 @@ MonoBehaviour:
   m_Name: PlantsSO
   m_EditorClassIdentifier: 
   Plants:
-    list: []
+    list:
+    - Key: 1
+      Value: {fileID: 8140136482531120707, guid: a4adf2d829c2aae448736e0cb99d9d50, type: 3}
+    - Key: 2
+      Value: {fileID: 8613427760112180836, guid: dec64ffbb42e333419fccbf9ac623bb2, type: 3}
+    - Key: 3
+      Value: {fileID: 3517160849495145496, guid: 5a070fb2ba3801446b4137defabbd6a5, type: 3}
     keyCollision: 0

@@ -9,15 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a1bf14f068afe64298f31a4c63c54c9, type: 3}
-  m_Name: PlantsSO
+  m_Script: {fileID: 11500000, guid: 95e8246b36b988f4093e3940b9a66b5b, type: 3}
+  m_Name: ZombiesSO
   m_EditorClassIdentifier: 
-  Plants:
+  Zombies:
     list:
     - Key: 1
-      Value: {fileID: 11400000, guid: 6679e409baa127f4c93e50a04bcd318c, type: 2}
+      Value: {fileID: 11400000, guid: 15f66d2c0ca394c46b2cea23d24c90a3, type: 2}
     - Key: 2
-      Value: {fileID: 11400000, guid: 10f5ad6d5f02cdc42ab7f00dbe397026, type: 2}
+      Value: {fileID: 11400000, guid: 84063039231325a49aa404645567e6bd, type: 2}
     - Key: 3
-      Value: {fileID: 11400000, guid: 5bd6bc6f30ebb0b43b4147098e0cbcae, type: 2}
+      Value: {fileID: 11400000, guid: f37c42f5e96699b47b7ad01307892027, type: 2}
     keyCollision: 0

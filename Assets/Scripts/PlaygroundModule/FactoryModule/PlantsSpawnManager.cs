@@ -67,7 +67,8 @@ namespace PlaygroundModule
                 Debug.LogError($"INVALID DATA\nSelected cell: {_selectedCell}\nSelected plant type: {_selectedPlantType}");
             }
 
-            var plant = Instantiate(ObjectLoader.LoadPlant(_selectedPlantType), _parentToSpawnTransform);
+            var plantSO = ObjectLoader.LoadPlantSO(_selectedPlantType);
+            var plant = Instantiate(plantSO.Prefab, _parentToSpawnTransform);
 
             _selectedCell = null;
 

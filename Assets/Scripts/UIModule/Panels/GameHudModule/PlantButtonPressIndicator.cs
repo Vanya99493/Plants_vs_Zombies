@@ -9,7 +9,6 @@ namespace UIModule.GameHudModule
     public class PlantButtonPressIndicator : MonoBehaviour
     {
         [SerializeField] private CanvasGroup _indicatorCanvasGroup;
-        //[SerializeField] private Pair<int, Button>[] _buttons;
         [SerializeField] private List<Pair<int, Button>> _buttons;
 
         private int _pressedButtonIndex = -1;
@@ -21,32 +20,37 @@ namespace UIModule.GameHudModule
                 _indicatorCanvasGroup = GetComponent<CanvasGroup>();
             }
 
-            _indicatorCanvasGroup.alpha = 0;
+            DeactivateIndicator();
 
             foreach(var button in _buttons)
             {
                 button.Value.onClick.AddListener(() => OnButtonClick(button.Key));
             }
+        }
 
-            /*for (int i = 0; i < _buttons.Length; i++)
-            {
-                _buttons[i].Value.onClick.AddListener(() => OnButtonClick(_buttons[i].Key));
-            }*/
+        public void DeactivateIndicator()
+        {
+            _pressedButtonIndex = -1;
+            _indicatorCanvasGroup.alpha = 0;
         }
 
         private void OnButtonClick(int index)
         {
             if(_pressedButtonIndex != index)
             {
-                _pressedButtonIndex = index;
-                _indicatorCanvasGroup.transform.position = _buttons[index].Value.transform.position;
-                _indicatorCanvasGroup.alpha = 1;
+                ActivateIndicator(index);
             }
             else
             {
-                _pressedButtonIndex = -1;
-                _indicatorCanvasGroup.alpha = 0;
+                DeactivateIndicator();
             }
+        }
+
+        private void ActivateIndicator(int index)
+        {
+            _pressedButtonIndex = index;
+            _indicatorCanvasGroup.transform.position = _buttons[index].Value.transform.position;
+            _indicatorCanvasGroup.alpha = 1;
         }
     }
 }

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 438774307969631742}
   - component: {fileID: 7934773254381287156}
   - component: {fileID: 2322594753428735123}
+  - component: {fileID: -2239970347204533735}
   m_Layer: 0
   m_Name: Zombie_fullArmoured
   m_TagString: Untagged
@@ -108,6 +109,18 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-2239970347204533735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 826379304497211669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ded6857be78fc04496fea157d2144da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7098692106064730478
 GameObject:
   m_ObjectHideFlags: 0

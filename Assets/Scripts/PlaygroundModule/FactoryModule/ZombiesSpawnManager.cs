@@ -34,7 +34,13 @@ namespace PlaygroundModule
             var spawnedZombie = Instantiate(zombieSO.Prefab, _parentToSpawnTrasnofrm);
             spawnedZombie.Initialize(zombieSO.Speed);
             spawnedZombie.transform.position = spawnPosition;
+            spawnedZombie.DeathEvent += OnDestroy;
             return spawnedZombie;
+        }
+
+        private void OnDestroy(Zombie zombie)
+        {
+            Destroy(zombie.gameObject);
         }
     }
 }

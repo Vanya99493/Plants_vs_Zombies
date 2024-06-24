@@ -1,4 +1,4 @@
-﻿namespace LevelModule.Data
+﻿namespace LevelModule
 {
     public enum LevelDifficultyType
     {

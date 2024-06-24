@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using LevelModule.Data;
+﻿using LevelModule;
 using PlaygroundModule;
 using UIModule;
 using UnityEngine;
-using ZombiesModule;
 
 namespace Infrastructure
 {
@@ -13,26 +11,24 @@ namespace Infrastructure
         [SerializeField] private PlantsSpawnManager _plantsSpawnManager;
         [SerializeField] private ZombiesSpawnManager _zombiesSpawnManager;
 
+        private Level _currentLevel;
+        
         private void Awake()
         {
             InitializeUI();
+            
+            StartNewLevel();
         }
 
-        private void Start()
+        private void StartNewLevel(LevelDifficultyType levelDifficultyType = LevelDifficultyType.Easy)
         {
-            StartLevel();
-        }
-
-        private void StartLevel(LevelDifficultyType levelDifficultyType = LevelDifficultyType.Easy)
-        {
-            // spawn enemies
+            _currentLevel = new Level(_uiController, _plantsSpawnManager, _zombiesSpawnManager);
+            _currentLevel.StartLevel(levelDifficultyType);
         }
 
         private void InitializeUI()
         {
-            _uiController.InitializeGameHud(_plantsSpawnManager.SelectPlantType, 
-                _plantsSpawnManager.SelectPlantType, 
-                _plantsSpawnManager.SelectPlantType);
+            
         }
     }
 }

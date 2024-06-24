@@ -2,7 +2,7 @@
 using CustomClasses;
 using ZombiesModule;
 
-namespace LevelModule.Data
+namespace LevelModule
 {
     [Serializable]
     public class Wave

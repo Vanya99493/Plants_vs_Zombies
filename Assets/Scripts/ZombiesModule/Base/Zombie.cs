@@ -1,9 +1,12 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace ZombiesModule
 {
     public abstract class Zombie : MonoBehaviour
     {
+        public event Action<Zombie> DeathEvent;
+
         protected float _speed;
 
         public void Initialize(float speed)
@@ -19,8 +22,7 @@ namespace ZombiesModule
         protected void Move()
         {
             Vector3 direction = new(-1f, 0f, 0f);
-            transform.position += direction * Time.fixedDeltaTime * _speed;
-            Debug.Log(direction * Time.fixedDeltaTime * _speed);
+            transform.position += direction * (Time.fixedDeltaTime * _speed);
         }
     }
 }

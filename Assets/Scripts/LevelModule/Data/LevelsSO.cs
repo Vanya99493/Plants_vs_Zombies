@@ -1,7 +1,7 @@
 ﻿using CustomClasses;
 using UnityEngine;
 
-namespace LevelModule.Data
+namespace LevelModule
 {
     [CreateAssetMenu(fileName = "LevelsSO", menuName = "Levels/LevelsSO", order = 0)]
     public class LevelsSO : ScriptableObject

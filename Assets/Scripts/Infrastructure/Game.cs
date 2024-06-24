@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using LevelModule.Data;
 using PlaygroundModule;
 using UIModule;
 using UnityEngine;
@@ -19,29 +20,19 @@ namespace Infrastructure
 
         private void Start()
         {
-            StartCoroutine(SpawnEnemiesByDelay(3f));
+            StartLevel();
+        }
+
+        private void StartLevel(LevelDifficultyType levelDifficultyType = LevelDifficultyType.Easy)
+        {
+            // spawn enemies
         }
 
         private void InitializeUI()
         {
-            _uiController.InitializeGameHud(_plantsSpawnManager.SelectPlantType, _plantsSpawnManager.SelectPlantType, _plantsSpawnManager.SelectPlantType);
-        }
-
-        private IEnumerator SpawnEnemiesByDelay(float delay)
-        {
-            ZombieType[] zombiesTypes =
-            {
-                ZombieType.Simple,
-                ZombieType.ConeArmoured,
-                ZombieType.BucketArmoured
-            };
-            int i = 0;
-
-            while (true)
-            {
-                yield return new WaitForSeconds(delay);
-                _zombiesSpawnManager.SpawnZombie(zombiesTypes[i % zombiesTypes.Length]);
-            }
+            _uiController.InitializeGameHud(_plantsSpawnManager.SelectPlantType, 
+                _plantsSpawnManager.SelectPlantType, 
+                _plantsSpawnManager.SelectPlantType);
         }
     }
 }

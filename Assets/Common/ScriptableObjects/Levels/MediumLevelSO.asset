@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc237ce973e84495b33b479abac07fd3, type: 3}
-  m_Name: SimpleSO
+  m_Script: {fileID: 11500000, guid: 1fe34b2257ec4cb6947891400cb45ffd, type: 3}
+  m_Name: MediumLevelSO
   m_EditorClassIdentifier: 
-  Prefab: {fileID: 3521020780660805639, guid: ba72ba11372a5f54e8ba66584e8512d4, type: 3}
-  Speed: 0.3
+  Waves: []

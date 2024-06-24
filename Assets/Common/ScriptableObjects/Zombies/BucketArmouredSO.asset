@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: BucketArmouredSO
   m_EditorClassIdentifier: 
   Prefab: {fileID: -2239970347204533735, guid: c53a6cced7c139f4ba52421065747f60, type: 3}
-  Speed: 5
+  Speed: 0.3

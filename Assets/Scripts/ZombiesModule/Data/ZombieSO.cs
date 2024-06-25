@@ -6,6 +6,9 @@ namespace ZombiesModule
     public class ZombieSO : ScriptableObject
     {
         public Zombie Prefab;
+        public int HealthPoints;
+        public int Damage;
+        public float Distance;
         public float Speed;
     }
 }

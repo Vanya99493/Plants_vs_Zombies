@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc237ce973e84495b33b479abac07fd3, type: 3}
   m_Name: ConeArmouredSO
   m_EditorClassIdentifier: 
-  Prefab: {fileID: -8175480699472519859, guid: 9485921e4e7dad84a9c59116b8551b3e, type: 3}
+  Prefab: {fileID: 315671634756784943, guid: 9485921e4e7dad84a9c59116b8551b3e, type: 3}
+  HealthPoints: 10
+  Damage: 1
+  Distance: 0.1
   Speed: 0.3

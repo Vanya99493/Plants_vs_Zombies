@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc237ce973e84495b33b479abac07fd3, type: 3}
   m_Name: SimpleSO
   m_EditorClassIdentifier: 
-  Prefab: {fileID: 3521020780660805639, guid: ba72ba11372a5f54e8ba66584e8512d4, type: 3}
+  Prefab: {fileID: 2858621288001103494, guid: ba72ba11372a5f54e8ba66584e8512d4, type: 3}
+  HealthPoints: 5
+  Damage: 1
+  Distance: 0.1
   Speed: 0.3

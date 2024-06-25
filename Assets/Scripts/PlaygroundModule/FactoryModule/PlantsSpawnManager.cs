@@ -69,6 +69,8 @@ namespace PlaygroundModule
 
             var plantSO = ObjectLoader.LoadPlantSO(_selectedPlantType);
             var plant = Instantiate(plantSO.Prefab, _parentToSpawnTransform);
+            plant.Initialize(plantSO.HealthPoints);
+            plant.DeathEvent += OnPlantDestroy;
 
             _selectedCell = null;
 
@@ -76,6 +78,11 @@ namespace PlaygroundModule
             {
                 Destroy(plant.gameObject);
             }
+        }
+
+        private void OnPlantDestroy(Plant plant)
+        {
+            Destroy(plant.gameObject);
         }
     }
 }

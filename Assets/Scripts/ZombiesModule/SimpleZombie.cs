@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-namespace ZombiesModule
+﻿namespace ZombiesModule
 {
     public class SimpleZombie : Zombie
     {

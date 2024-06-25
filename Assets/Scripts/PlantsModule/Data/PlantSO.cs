@@ -6,5 +6,12 @@ namespace PlantsModule
     public class PlantSO : ScriptableObject
     {
         public Plant Prefab;
+        public int HealthPoints;
+        public int Damage;
+        public int Distance;
+        public float RegeneratePerSecond;
+        [Header("Coin production")] 
+        public int CoinsToSpawn;
+        public int CoinsSpawnDelay;
     }
 }

@@ -12,4 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13bb317b3814442a87dbd16e5b65fb77, type: 3}
   m_Name: PeeshooterSO
   m_EditorClassIdentifier: 
-  Prefab: {fileID: 8613427760112180836, guid: dec64ffbb42e333419fccbf9ac623bb2, type: 3}
+  Prefab: {fileID: 7513052410588000633, guid: dec64ffbb42e333419fccbf9ac623bb2, type: 3}
+  HealthPoints: 7
+  Damage: 1
+  Distance: 10
+  RegeneratePerSecond: 0
+  CoinsToSpawn: 0
+  CoinsSpawnDelay: 0

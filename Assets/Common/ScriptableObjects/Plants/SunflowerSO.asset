@@ -12,4 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13bb317b3814442a87dbd16e5b65fb77, type: 3}
   m_Name: SunflowerSO
   m_EditorClassIdentifier: 
-  Prefab: {fileID: 8140136482531120707, guid: a4adf2d829c2aae448736e0cb99d9d50, type: 3}
+  Prefab: {fileID: 1342518526509859376, guid: a4adf2d829c2aae448736e0cb99d9d50, type: 3}
+  HealthPoints: 5
+  Damage: 0
+  Distance: 0
+  RegeneratePerSecond: 0
+  CoinsToSpawn: 25
+  CoinsSpawnDelay: 7

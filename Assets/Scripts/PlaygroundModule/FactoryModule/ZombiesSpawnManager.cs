@@ -32,13 +32,13 @@ namespace PlaygroundModule
 
             var zombieSO = ObjectLoader.LoadZombieSO(zombieType);
             var spawnedZombie = Instantiate(zombieSO.Prefab, _parentToSpawnTrasnofrm);
-            spawnedZombie.Initialize(zombieSO.Speed);
             spawnedZombie.transform.position = spawnPosition;
-            spawnedZombie.DeathEvent += OnDestroy;
+            spawnedZombie.Initialize(zombieSO.HealthPoints, zombieSO.Speed, zombieSO.Damage, zombieSO.Distance);
+            spawnedZombie.DeathEvent += OnZombieDestroy;
             return spawnedZombie;
         }
 
-        private void OnDestroy(Zombie zombie)
+        private void OnZombieDestroy(Zombie zombie)
         {
             Destroy(zombie.gameObject);
         }

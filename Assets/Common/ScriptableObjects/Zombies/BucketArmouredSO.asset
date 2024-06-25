@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc237ce973e84495b33b479abac07fd3, type: 3}
   m_Name: BucketArmouredSO
   m_EditorClassIdentifier: 
-  Prefab: {fileID: -2239970347204533735, guid: c53a6cced7c139f4ba52421065747f60, type: 3}
+  Prefab: {fileID: 363092209544546099, guid: c53a6cced7c139f4ba52421065747f60, type: 3}
+  HealthPoints: 15
+  Damage: 1
+  Distance: 0.1
   Speed: 0.3

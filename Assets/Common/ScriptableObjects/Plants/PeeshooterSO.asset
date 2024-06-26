@@ -16,6 +16,7 @@ MonoBehaviour:
   HealthPoints: 7
   Damage: 1
   Distance: 10
+  BulletSpeed: 4
   RegeneratePerSecond: 0
   CoinsToSpawn: 0
   CoinsSpawnDelay: 0

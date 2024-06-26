@@ -9,6 +9,7 @@ namespace PlantsModule
         public int HealthPoints;
         public int Damage;
         public int Distance;
+        public float BulletSpeed;
         public float RegeneratePerSecond;
         [Header("Coin production")] 
         public int CoinsToSpawn;

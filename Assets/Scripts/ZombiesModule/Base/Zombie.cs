@@ -9,11 +9,9 @@ namespace ZombiesModule
         public event Action<Zombie> DeathEvent;
 
         //[SerializeField] protected ZombieStateMachine _zombieStateMachine;
-        //[SerializeField] protected SphereCaster _sphereCaster;
-        [SerializeField] private float _sphereRadius = 0.1f;
-        [SerializeField] private LayerMask _layerMask;
 
-        private float _maxDistance;
+        [SerializeField] private ZombieTrigger _zombieTrigger;
+        
         private float _reloadTime;
         private GameObject _trackedObject;
         
@@ -21,18 +19,18 @@ namespace ZombiesModule
         protected float _speed;
         protected int _damage;
 
-        public void Initialize(int healthPoints, float speed, int damage, float distance)
+        public void Initialize(int healthPoints, float speed, int damage)
         {
             _healthPoints = healthPoints;
             _speed = speed;
             _damage = damage;
-            _maxDistance = distance;
+
+            _zombieTrigger.TriggerEnterEvent += trackedObject => _trackedObject = trackedObject;
+            _zombieTrigger.TriggerExitEvent += trackedObject => _trackedObject = trackedObject;
         }
 
         private void FixedUpdate()
         {
-            CastSphere();
-
             if (_trackedObject == null)
             {
                 Move();
@@ -65,14 +63,6 @@ namespace ZombiesModule
         {
             Vector3 direction = new(-1f, 0f, 0f);
             transform.position += direction * (Time.fixedDeltaTime * _speed);
-        }
-        
-        private void CastSphere()
-        {
-            _trackedObject = Physics.SphereCast(transform.position, _sphereRadius, -transform.right,
-                out RaycastHit hit, _maxDistance, _layerMask)
-                ? hit.transform.gameObject
-                : null;
         }
     }
 }

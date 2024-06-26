@@ -12,18 +12,18 @@ namespace LevelModule
     public class Level
     {
         private PlantsSpawnManager _plantsSpawnManager;
-        private ZombiesSpawnManager _zombiesSpawnManager;
+        private ZombiesSpawner _zombiesSpawner;
 
         private WavesController _wavesController;
         
-        public Level(UIController uiController, PlantsSpawnManager plantsSpawnManager, ZombiesSpawnManager zombiesSpawnManager)
+        public Level(UIController uiController, PlantsSpawnManager plantsSpawnManager, ZombiesSpawner zombiesSpawner)
         {
             _plantsSpawnManager = plantsSpawnManager;
-            _zombiesSpawnManager = zombiesSpawnManager;
+            _zombiesSpawner = zombiesSpawner;
             
             InitializeGameHud(uiController);
 
-            _wavesController = new WavesController(_zombiesSpawnManager);
+            _wavesController = new WavesController(_zombiesSpawner);
         }
         
         public void StartLevel(LevelDifficultyType levelDifficultyType = LevelDifficultyType.Easy)

@@ -4,7 +4,7 @@ using ZombiesModule;
 
 namespace PlaygroundModule
 {
-    public class ZombiesSpawnManager : MonoBehaviour
+    public class ZombiesSpawner : MonoBehaviour
     {
         [SerializeField] private Transform[] _spawnPositionsTransforms;
         [SerializeField] private Transform _parentToSpawnTrasnofrm;
@@ -33,7 +33,7 @@ namespace PlaygroundModule
             var zombieSO = ObjectLoader.LoadZombieSO(zombieType);
             var spawnedZombie = Instantiate(zombieSO.Prefab, _parentToSpawnTrasnofrm);
             spawnedZombie.transform.position = spawnPosition;
-            spawnedZombie.Initialize(zombieSO.HealthPoints, zombieSO.Speed, zombieSO.Damage, zombieSO.Distance);
+            spawnedZombie.Initialize(zombieSO.HealthPoints, zombieSO.Speed, zombieSO.Damage);
             spawnedZombie.DeathEvent += OnZombieDestroy;
             return spawnedZombie;
         }

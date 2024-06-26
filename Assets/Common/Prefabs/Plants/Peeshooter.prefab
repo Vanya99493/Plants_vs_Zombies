@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 8129784404453622817}
   - component: {fileID: 6059408937393407805}
   - component: {fileID: 7513052410588000633}
+  - component: {fileID: 8891670792048756899}
   m_Layer: 6
   m_Name: Peeshooter
   m_TagString: Untagged
@@ -118,6 +119,8 @@ Transform:
   - {fileID: 5831618396096874453}
   - {fileID: 8924468152980326884}
   - {fileID: 6212736109181299501}
+  - {fileID: 7382653327298972390}
+  - {fileID: 7840261223693294469}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &8129784404453622817
@@ -180,6 +183,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49a8b857e00998644b61c2c03a75f484, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8891670792048756899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4231859563573001424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e14e4f99500411285f2e6bc3c31f291, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _plantType: 2
+  _shooterTrigger: {fileID: 6188719812837621038}
+  _bulletsSpawnTransform: {fileID: 7840261223693294469}
+  _collidedLayerMask:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1 &5877337677504640871
 GameObject:
   m_ObjectHideFlags: 0
@@ -346,3 +367,112 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &8838188893650312148
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7382653327298972390}
+  - component: {fileID: 6272473469195368109}
+  - component: {fileID: 7449695068730986945}
+  - component: {fileID: 6188719812837621038}
+  m_Layer: 0
+  m_Name: ShooterTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7382653327298972390
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8838188893650312148}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2880787367993055645}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &6272473469195368109
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8838188893650312148}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &7449695068730986945
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8838188893650312148}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 10, y: 0.7, z: 0.7}
+  m_Center: {x: 5, y: 0.35, z: 0}
+--- !u!114 &6188719812837621038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8838188893650312148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 464b8dad027e4d30abc54d276c81fb6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _triggerLayer:
+    serializedVersion: 2
+    m_Bits: 128
+--- !u!1 &9160571980537091905
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7840261223693294469}
+  m_Layer: 6
+  m_Name: BulletsSpawnTransform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7840261223693294469
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9160571980537091905}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.021, y: 0.6195, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2880787367993055645}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

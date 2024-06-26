@@ -9,20 +9,20 @@ namespace LevelModule
 {
     public class WavesController
     {
-        private ZombiesSpawnManager _zombiesSpawnManager;
+        private ZombiesSpawner _zombiesSpawner;
 
         private int _zombiesToDestroy;
         private int _destroyedZombies;
         private bool _isWaveEnded = false;
         
-        public WavesController(ZombiesSpawnManager zombiesSpawnManager)
+        public WavesController(ZombiesSpawner zombiesSpawner)
         {
-            _zombiesSpawnManager = zombiesSpawnManager;
+            _zombiesSpawner = zombiesSpawner;
         }
 
         public void StartSpawnZombies(LevelSO levelSO)
         {
-            _zombiesSpawnManager.StartCoroutine(SpawnZombies(levelSO));
+            _zombiesSpawner.StartCoroutine(SpawnZombies(levelSO));
         }
         
         private IEnumerator SpawnZombies(LevelSO levelSO)
@@ -53,7 +53,7 @@ namespace LevelModule
                     waveTime -= waitTime;
                     
                     yield return new WaitForSeconds(waitTime);
-                    Zombie spawnedZombie = _zombiesSpawnManager.SpawnZombie(zombieType);
+                    Zombie spawnedZombie = _zombiesSpawner.SpawnZombie(zombieType);
                     spawnedZombie.DeathEvent += OnZombieDestroy;
                     
                     currentZombieTypeIndex++;
@@ -73,7 +73,7 @@ namespace LevelModule
                 foreach (var zombieType in zombiesTypes)
                 {
                     yield return new WaitForSeconds(1f);
-                    Zombie spawnedZombie = _zombiesSpawnManager.SpawnZombie(zombieType);
+                    Zombie spawnedZombie = _zombiesSpawner.SpawnZombie(zombieType);
                     spawnedZombie.DeathEvent += OnZombieDestroy;
                 }
 

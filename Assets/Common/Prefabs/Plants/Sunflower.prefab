@@ -83,6 +83,37 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &863439786518706109
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8510039836288913508}
+  m_Layer: 0
+  m_Name: CoinsSpawnPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8510039836288913508
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 863439786518706109}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.75, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3412557204845578816}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &971513943356382515
 GameObject:
   m_ObjectHideFlags: 0
@@ -95,6 +126,7 @@ GameObject:
   - component: {fileID: 5997093872311470923}
   - component: {fileID: 2797765911886176406}
   - component: {fileID: 1342518526509859376}
+  - component: {fileID: 4221225151550293329}
   m_Layer: 6
   m_Name: Sunflower
   m_TagString: Untagged
@@ -117,6 +149,7 @@ Transform:
   m_Children:
   - {fileID: 8066259987556975284}
   - {fileID: 5141535373670424343}
+  - {fileID: 8510039836288913508}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &5997093872311470923
@@ -179,6 +212,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2119c338918b1874f906159414804dac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4221225151550293329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 971513943356382515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a0360e38e5d44e3ae7cff3a1b635c1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spawnPositionTransform: {fileID: 8510039836288913508}
+  coinsSpawner: {fileID: 0}
+  _plantType: 1
 --- !u!1 &2207421668717329821
 GameObject:
   m_ObjectHideFlags: 0

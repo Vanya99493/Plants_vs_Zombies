@@ -31,7 +31,7 @@ namespace PlantsModule
 
         private void Start()
         {
-            _bulletsSpawner = Game.Services[typeof(BulletsSpawner)] as BulletsSpawner;
+            _bulletsSpawner = DIContainer.GetService<BulletsSpawner>();
         }
 
         private void OnTriggerEvent(int trackedObjectsCount)

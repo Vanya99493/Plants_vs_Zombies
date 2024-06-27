@@ -1388,7 +1388,7 @@ GameObject:
   - component: {fileID: 1005132402}
   - component: {fileID: 1005132403}
   m_Layer: 0
-  m_Name: Game
+  m_Name: Level
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1407,6 +1407,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1632007861}
   - {fileID: 1768631420}
   - {fileID: 1114704059}
   m_Father: {fileID: 0}
@@ -1420,14 +1421,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1005132401}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db907dd1141e96d488a119fb04edffb8, type: 3}
+  m_Script: {fileID: 11500000, guid: 474067bc783d4f1a9706a0df1ed7c46e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _levelDifficultyType: 0
+  _diContainer: {fileID: 1632007860}
   _uiController: {fileID: 911797030}
   _plantsSpawnManager: {fileID: 1680763726}
   _zombiesSpawner: {fileID: 1846232258}
-  _coinsSpawner: {fileID: 1617825778}
-  _bulletsSpawner: {fileID: 1923324951}
 --- !u!1 &1101861945
 GameObject:
   m_ObjectHideFlags: 0
@@ -2494,6 +2495,53 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _button: {fileID: 1625839294}
   _plantType: 1
+--- !u!1 &1632007859
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1632007861}
+  - component: {fileID: 1632007860}
+  m_Layer: 0
+  m_Name: DIContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1632007860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1632007859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cce550e7e2f42968f9fb2f498ef161b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _servicesList:
+  - {fileID: 1617825778}
+  - {fileID: 1923324951}
+--- !u!4 &1632007861
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1632007859}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1005132402}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1680359973
 GameObject:
   m_ObjectHideFlags: 0

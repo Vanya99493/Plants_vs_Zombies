@@ -1,10 +1,9 @@
 ﻿using CoinsModule;
-using Infrastructure.Interfaces;
 using UnityEngine;
 
 namespace PlaygroundModule
 {
-    public class CoinsSpawner : MonoBehaviour, IService
+    public class CoinsSpawner : MonoBehaviour
     {
         [SerializeField] private Transform _parentToSpawn;
         [SerializeField] private Coin _coinPrefab;

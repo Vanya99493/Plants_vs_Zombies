@@ -26,7 +26,7 @@ namespace PlantsModule
 
         private void Start()
         {
-            _coinsSpawner = Game.Services[typeof(CoinsSpawner)] as CoinsSpawner;
+            _coinsSpawner = DIContainer.GetService<CoinsSpawner>();
         }
 
         private IEnumerator CoinsSpawnCoroutine()

@@ -1,10 +1,9 @@
 ﻿using BulletsModule;
-using Infrastructure.Interfaces;
 using UnityEngine;
 
 namespace PlaygroundModule
 {
-    public class BulletsSpawner : MonoBehaviour, IService
+    public class BulletsSpawner : MonoBehaviour
     {
         [SerializeField] private Transform _parentToSpawn;
         [SerializeField] private Bullet _bulletPrefab;

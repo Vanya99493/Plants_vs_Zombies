@@ -36,9 +36,10 @@ namespace PlantsModule
 
         private void OnTriggerEvent(int trackedObjectsCount)
         {
-            if (trackedObjectsCount <= 0)
+            if (trackedObjectsCount <= 0 && _shootCoroutine != null)
             {
-                StopCoroutine(ShootCoroutine());
+                StopCoroutine(_shootCoroutine);
+                _shootCoroutine = null;
             }
             else if(_shootCoroutine == null)
             {

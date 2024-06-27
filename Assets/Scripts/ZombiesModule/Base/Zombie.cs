@@ -4,9 +4,9 @@ using UnityEngine;
 
 namespace ZombiesModule
 {
-    public abstract class Zombie : MonoBehaviour, IDamagable
+    public abstract class Zombie : MonoBehaviour, IDamagable, IDestroyable
     {
-        public event Action<Zombie> DeathEvent;
+        public event Action<IDestroyable> DestroyEvent;
 
         //[SerializeField] protected ZombieStateMachine _zombieStateMachine;
 
@@ -55,7 +55,7 @@ namespace ZombiesModule
 
             if (_healthPoints <= 0)
             {
-                DeathEvent?.Invoke(this);
+                DestroyEvent?.Invoke(this);
             }
         }
 

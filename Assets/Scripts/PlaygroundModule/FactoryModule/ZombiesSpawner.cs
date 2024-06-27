@@ -1,4 +1,5 @@
-﻿using ObjectLoaderModule;
+﻿using Interfaces;
+using ObjectLoaderModule;
 using UnityEngine;
 using ZombiesModule;
 
@@ -34,13 +35,13 @@ namespace PlaygroundModule
             var spawnedZombie = Instantiate(zombieSO.Prefab, _parentToSpawnTrasnofrm);
             spawnedZombie.transform.position = spawnPosition;
             spawnedZombie.Initialize(zombieSO.HealthPoints, zombieSO.Speed, zombieSO.Damage);
-            spawnedZombie.DeathEvent += OnZombieDestroy;
+            spawnedZombie.DestroyEvent += OnZombieDestroy;
             return spawnedZombie;
         }
 
-        private void OnZombieDestroy(Zombie zombie)
+        private void OnZombieDestroy(IDestroyable zombie)
         {
-            Destroy(zombie.gameObject);
+            Destroy((zombie as Zombie)?.gameObject);
         }
     }
 }

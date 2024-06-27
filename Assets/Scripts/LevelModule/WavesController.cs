@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using CustomClasses;
+using Interfaces;
 using PlaygroundModule;
 using UnityEngine;
 using ZombiesModule;
@@ -54,7 +55,7 @@ namespace LevelModule
                     
                     yield return new WaitForSeconds(waitTime);
                     Zombie spawnedZombie = _zombiesSpawner.SpawnZombie(zombieType);
-                    spawnedZombie.DeathEvent += OnZombieDestroy;
+                    spawnedZombie.DestroyEvent += OnZombieDestroy;
                     
                     currentZombieTypeIndex++;
                 }
@@ -74,7 +75,7 @@ namespace LevelModule
                 {
                     yield return new WaitForSeconds(1f);
                     Zombie spawnedZombie = _zombiesSpawner.SpawnZombie(zombieType);
-                    spawnedZombie.DeathEvent += OnZombieDestroy;
+                    spawnedZombie.DestroyEvent += OnZombieDestroy;
                 }
 
                 while (!_isWaveEnded)
@@ -100,7 +101,7 @@ namespace LevelModule
             return zombies;
         }
 
-        private void OnZombieDestroy(Zombie zombie)
+        private void OnZombieDestroy(IDestroyable zombie)
         {
             _destroyedZombies++;
             if (_destroyedZombies >= _zombiesToDestroy)

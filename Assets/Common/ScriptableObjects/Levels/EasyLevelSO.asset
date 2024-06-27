@@ -17,12 +17,12 @@ MonoBehaviour:
     ZombiesDuringWave:
       list:
       - Key: 1
-        Value: 2
+        Value: 10
       keyCollision: 0
     ZombiesDuringFinalWaveFight:
       list:
       - Key: 1
-        Value: 3
+        Value: 10
       keyCollision: 0
   - WaveTime: 10
     ZombiesDuringWave:

@@ -4,9 +4,9 @@ using UnityEngine;
 
 namespace PlantsModule
 {
-    public abstract class Plant : MonoBehaviour, IDamagable
+    public abstract class Plant : MonoBehaviour, IDamagable, IDestroyable
     {
-        public event Action<Plant> DeathEvent; 
+        public event Action<IDestroyable> DestroyEvent;
 
         protected int _healthPoints;
         
@@ -21,8 +21,9 @@ namespace PlantsModule
 
             if (_healthPoints <= 0)
             {
-                DeathEvent?.Invoke(this);
+                DestroyEvent?.Invoke(this);
             }
         }
+
     }
 }

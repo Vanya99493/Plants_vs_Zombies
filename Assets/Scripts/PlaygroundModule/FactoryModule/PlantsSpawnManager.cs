@@ -1,3 +1,4 @@
+using Interfaces;
 using ObjectLoaderModule;
 using PlantsModule;
 using PlaygroundModule.CellsModule;
@@ -41,9 +42,11 @@ namespace PlaygroundModule
         private void ThrowRay()
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity))
+            RaycastHit[] hits = Physics.RaycastAll(ray, Mathf.Infinity);
+
+            for (int i = 0; i < hits.Length; i++)
             {
-                if (hit.collider.gameObject.TryGetComponent<Cell>(out var cell))
+                if (hits[i].collider.gameObject.TryGetComponent<Cell>(out var cell))
                 {
                     if (_selectedCell != null && !cell.IsActive)
                     {
@@ -51,13 +54,13 @@ namespace PlaygroundModule
                     }
                     _selectedCell = cell;
                     _selectedCell.Activate();
+
+                    return;
                 }
             }
-            else
-            {
-                _selectedCell?.Deactivate();
-                _selectedCell = null;
-            }
+            
+            _selectedCell?.Deactivate();
+            _selectedCell = null;
         }
 
         private void Spawn(Cell cell)
@@ -70,7 +73,7 @@ namespace PlaygroundModule
             var plantSO = ObjectLoader.LoadPlantSO(_selectedPlantType);
             var plant = Instantiate(plantSO.Prefab, _parentToSpawnTransform);
             plant.Initialize(plantSO.HealthPoints);
-            plant.DeathEvent += OnPlantDestroy;
+            plant.DestroyEvent += OnPlantDestroy;
 
             _selectedCell = null;
 
@@ -80,9 +83,9 @@ namespace PlaygroundModule
             }
         }
 
-        private void OnPlantDestroy(Plant plant)
+        private void OnPlantDestroy(IDestroyable plant)
         {
-            Destroy(plant.gameObject);
+            Destroy((plant as Plant)?.gameObject);
         }
     }
 }

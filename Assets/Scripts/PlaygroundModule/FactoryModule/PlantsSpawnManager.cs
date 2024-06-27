@@ -13,14 +13,26 @@ namespace PlaygroundModule
         private PlantType _selectedPlantType;
         private Cell _selectedCell;
 
+        private bool _isPlantRemoving = false;
+        
         public void SelectPlantType(PlantType newPlantType)
         {
+            if (_isPlantRemoving)
+            {
+                _isPlantRemoving = false;
+            }
             _selectedPlantType = _selectedPlantType == newPlantType ? PlantType.None : newPlantType;
+        }
+
+        public void PlantRemovingSwitch()
+        {
+            _selectedPlantType = PlantType.None;
+            _isPlantRemoving = !_isPlantRemoving;
         }
 
         private void Update()
         {
-            if(_selectedPlantType != PlantType.None)
+            if(_selectedPlantType != PlantType.None || _isPlantRemoving)
             {
                 if(Input.GetMouseButton(0))
                 {
@@ -34,6 +46,13 @@ namespace PlaygroundModule
                     }
 
                     _selectedCell.Deactivate();
+                    
+                    if (_isPlantRemoving)
+                    {
+                        ClearCell(_selectedCell);
+                        return;
+                    }
+                    
                     Spawn(_selectedCell);
                 }
             }
@@ -81,6 +100,11 @@ namespace PlaygroundModule
             {
                 Destroy(plant.gameObject);
             }
+        }
+
+        private void ClearCell(Cell cell)
+        {
+            cell.ClearCell();
         }
 
         private void OnPlantDestroy(IDestroyable plant)

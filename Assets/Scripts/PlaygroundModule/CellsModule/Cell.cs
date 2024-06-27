@@ -31,6 +31,16 @@ namespace PlaygroundModule.CellsModule
             return true;
         }
 
+        public void ClearCell()
+        {
+            if (_plantOnCell == null)
+            {
+                return;
+            }
+            Destroy(_plantOnCell.gameObject);
+            _plantOnCell = null;
+        }
+
         public void Activate()
         {
             if (IsActive)

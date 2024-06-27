@@ -11,9 +11,10 @@ namespace UIModule
 
         public void InitializeGameHud(Action<PlantType> OnSunflowerButtonClickEvent,
             Action<PlantType> OnPeeshooterButtonClickEvent,
-            Action<PlantType> OnWallnutButtonClickEvent)
+            Action<PlantType> OnWallnutButtonClickEvent,
+            Action OnRemovePlantButtonClickEvent)
         {
-            _gameHud.Initialize(OnSunflowerButtonClickEvent, OnPeeshooterButtonClickEvent, OnWallnutButtonClickEvent);
+            _gameHud.Initialize(OnSunflowerButtonClickEvent, OnPeeshooterButtonClickEvent, OnWallnutButtonClickEvent, OnRemovePlantButtonClickEvent);
         }
     }
 }

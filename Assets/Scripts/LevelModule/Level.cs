@@ -50,7 +50,8 @@ namespace LevelModule
         {
             uiController.InitializeGameHud(_plantsSpawnManager.SelectPlantType, 
                 _plantsSpawnManager.SelectPlantType, 
-                _plantsSpawnManager.SelectPlantType);
+                _plantsSpawnManager.SelectPlantType,
+                _plantsSpawnManager.PlantRemovingSwitch);
         }
     }
 }

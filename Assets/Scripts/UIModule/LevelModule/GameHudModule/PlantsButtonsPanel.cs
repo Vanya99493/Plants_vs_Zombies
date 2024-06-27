@@ -1,26 +1,32 @@
-﻿using PlantsModule;
-using System;
+﻿using System;
+using LevelModule;
+using PlantsModule;
 using UnityEngine;
-using UnityEngine.UI;
 
-namespace UIModule.GameHudModule
+namespace UIModule.LevelModule
 {
-    public class GameHud : MonoBehaviour
+    public class PlantsButtonsPanel : MonoBehaviour
     {
         [SerializeField] private PlantButton _sunflowerButton;
         [SerializeField] private PlantButton _peeshooterButton;
         [SerializeField] private PlantButton _wallnutButton;
-        [SerializeField] private Button _removePlantButton;
-
+        
         public void Initialize(Action<PlantType> OnSunflowerButtonClickEvent, 
             Action<PlantType> OnPeeshooterButtonClickEvent, 
             Action<PlantType> OnWallnutButtonClickEvent,
-            Action OnRemovePlantButtonClickEvent)
+            CoinsHolder coinsHolder)
         {
             _sunflowerButton.Initialize(OnSunflowerButtonClickEvent);
             _peeshooterButton.Initialize(OnPeeshooterButtonClickEvent);
             _wallnutButton.Initialize(OnWallnutButtonClickEvent);
-            _removePlantButton.onClick.AddListener(() => OnRemovePlantButtonClickEvent?.Invoke());
+
+            coinsHolder.ChangeCoinsEvent += _sunflowerButton.UpdateButton;
+            coinsHolder.ChangeCoinsEvent += _peeshooterButton.UpdateButton;
+            coinsHolder.ChangeCoinsEvent += _wallnutButton.UpdateButton;
+
+            _sunflowerButton.UpdateButton(coinsHolder.Coins);
+            _peeshooterButton.UpdateButton(coinsHolder.Coins);
+            _wallnutButton.UpdateButton(coinsHolder.Coins);
         }
     }
 }

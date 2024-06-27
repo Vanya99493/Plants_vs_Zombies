@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fe34b2257ec4cb6947891400cb45ffd, type: 3}
   m_Name: EasyLevelSO
   m_EditorClassIdentifier: 
+  StartCoinsAmount: 500
   Waves:
   - WaveTime: 10
     ZombiesDuringWave:

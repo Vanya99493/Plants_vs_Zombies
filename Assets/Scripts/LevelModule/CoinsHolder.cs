@@ -1,29 +1,31 @@
 ﻿using System;
-using UnityEngine;
 
 namespace LevelModule
 {
-    public class CoinsHolder : MonoBehaviour
+    public class CoinsHolder
     {
         public event Action<int> ChangeCoinsEvent;
 
         public int Coins { get; private set; }
 
+        public CoinsHolder(int startCoinsAmount)
+        {
+            Coins = startCoinsAmount;
+        }
+        
         public void AddCoins(int newCoins)
         {
             Coins += newCoins;
             ChangeCoinsEvent?.Invoke(Coins);
         }
 
-        public bool WithdrawCoins(int coins)
+        public void WithdrawCoins(int coins)
         {
-            if (Coins < coins)
+            if (Coins >= coins)
             {
-                return false;
+                Coins -= coins;
+                ChangeCoinsEvent?.Invoke(Coins);
             }
-            Coins -= coins;
-            ChangeCoinsEvent?.Invoke(Coins);
-            return true;
         }
     }
 }

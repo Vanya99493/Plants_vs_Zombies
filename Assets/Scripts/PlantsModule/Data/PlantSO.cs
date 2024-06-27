@@ -6,6 +6,8 @@ namespace PlantsModule
     public class PlantSO : ScriptableObject
     {
         public Plant Prefab;
+        public Sprite Icon;
+        public int Price;
         public int HealthPoints;
         public int Damage;
         public int Distance;

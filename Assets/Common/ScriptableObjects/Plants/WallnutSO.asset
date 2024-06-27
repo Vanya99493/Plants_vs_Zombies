@@ -13,9 +13,12 @@ MonoBehaviour:
   m_Name: WallnutSO
   m_EditorClassIdentifier: 
   Prefab: {fileID: 6414314567813545834, guid: 5a070fb2ba3801446b4137defabbd6a5, type: 3}
+  Icon: {fileID: 0}
+  Price: 125
   HealthPoints: 20
   Damage: 0
   Distance: 0
+  BulletSpeed: 0
   RegeneratePerSecond: 0
   CoinsToSpawn: 0
   CoinsSpawnDelay: 0

@@ -12,6 +12,7 @@ namespace PlaygroundModule.CellsModule
         private Material _standartMaterial;
         private Plant _plantOnCell;
 
+        public bool IsBusy => _plantOnCell != null;
         public bool IsActive { get; private set; }
 
         private void Awake()

@@ -1,9 +1,9 @@
-﻿using CustomClasses;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using CustomClasses;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UIModule.GameHudModule
+namespace UIModule.LevelModule
 {
     [RequireComponent(typeof(CanvasGroup))]
     public class PlantButtonPressIndicator : MonoBehaviour

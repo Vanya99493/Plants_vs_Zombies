@@ -1,13 +1,18 @@
+using System;
 using Interfaces;
 using ObjectLoaderModule;
 using PlantsModule;
 using PlaygroundModule.CellsModule;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace PlaygroundModule
 {
     public class PlantsSpawnManager : MonoBehaviour
     {
+        public UnityEvent CompleteActionEvent;
+        public event Action<int> SpawnPlantEvent;
+
         [SerializeField] private Transform _parentToSpawnTransform;
 
         private PlantType _selectedPlantType;
@@ -44,7 +49,6 @@ namespace PlaygroundModule
                     {
                         return;
                     }
-
                     _selectedCell.Deactivate();
                     
                     if (_isPlantRemoving)
@@ -52,7 +56,6 @@ namespace PlaygroundModule
                         ClearCell(_selectedCell);
                         return;
                     }
-                    
                     Spawn(_selectedCell);
                 }
             }
@@ -88,23 +91,34 @@ namespace PlaygroundModule
             {
                 Debug.LogError($"INVALID DATA\nSelected cell: {_selectedCell}\nSelected plant type: {_selectedPlantType}");
             }
+            if (cell.IsBusy)
+            {
+                return;
+            }
 
             var plantSO = ObjectLoader.LoadPlantSO(_selectedPlantType);
             var plant = Instantiate(plantSO.Prefab, _parentToSpawnTransform);
             plant.Initialize(plantSO.HealthPoints);
             plant.DestroyEvent += OnPlantDestroy;
-
-            _selectedCell = null;
-
-            if (!cell.SetPlant(plant))
-            {
-                Destroy(plant.gameObject);
-            }
+            cell.SetPlant(plant);
+            
+            SpawnPlantEvent?.Invoke(plantSO.Price);
+            CompleteActionEvent?.Invoke();
+            ResetData();
         }
 
         private void ClearCell(Cell cell)
         {
             cell.ClearCell();
+            ResetData();
+            CompleteActionEvent?.Invoke();
+        }
+
+        private void ResetData()
+        {
+            _selectedCell = null;
+            _isPlantRemoving = false;
+            _selectedPlantType = PlantType.None;
         }
 
         private void OnPlantDestroy(IDestroyable plant)

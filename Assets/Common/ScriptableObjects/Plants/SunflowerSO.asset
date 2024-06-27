@@ -13,9 +13,12 @@ MonoBehaviour:
   m_Name: SunflowerSO
   m_EditorClassIdentifier: 
   Prefab: {fileID: 1342518526509859376, guid: a4adf2d829c2aae448736e0cb99d9d50, type: 3}
+  Icon: {fileID: 0}
+  Price: 50
   HealthPoints: 5
   Damage: 0
   Distance: 0
+  BulletSpeed: 0
   RegeneratePerSecond: 0
   CoinsToSpawn: 25
   CoinsSpawnDelay: 7

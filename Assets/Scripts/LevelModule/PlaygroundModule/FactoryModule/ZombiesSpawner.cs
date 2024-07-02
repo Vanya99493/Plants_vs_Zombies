@@ -10,13 +10,15 @@ namespace LevelModule
         [SerializeField] private Transform _parentToSpawnTrasnofrm;
         [SerializeField] private CoinsSpawner _coinsSpawner;
 
-        private float _coinSpawnChance;
+        private int _coinSpawnChance;
         private float _coinLifeTime;
+        private int _coinsToSpawn;
         
-        public void Initialize(float coinSpawnChance, float coinLifeTime)
+        public void Initialize(int coinSpawnChance, float coinLifeTime, int coinsToSpawn)
         {
             _coinSpawnChance = coinSpawnChance;
             _coinLifeTime = coinLifeTime;
+            _coinsToSpawn = coinsToSpawn;
         }
         
         public Zombie[] SpawnZombies(ZombieType[] zombiesTypes)
@@ -52,7 +54,8 @@ namespace LevelModule
         {
             if (Random.Range(0, 100) < _coinSpawnChance)
             {
-                _coinsSpawner.SpawnCoinForTime(((Zombie)zombie).transform.position, _coinLifeTime);
+                var spawnedCoin = _coinsSpawner.SpawnCoinForTime(((Zombie)zombie).transform.position, _coinLifeTime);
+                spawnedCoin.Initialize(_coinsToSpawn);
             }
             Destroy((zombie as Zombie)?.gameObject);
         }

@@ -8,14 +8,11 @@ namespace UIModule.LevelModule
     {
         [SerializeField] private GameHud _gameHud;
 
-        public void InitializeGameHud(Action<PlantType> OnSunflowerButtonClickEvent,
-            Action<PlantType> OnPeeshooterButtonClickEvent,
-            Action<PlantType> OnWallnutButtonClickEvent,
-            Action OnRemovePlantButtonClickEvent,
+        public void InitializeGameHud(Action<PlantType> OnPlantButtonClickEvent,
+            Action OnRemovePlantButtonClickEvent, 
             CoinsHolder coinsHolder)
         {
-            _gameHud.Initialize(OnSunflowerButtonClickEvent, OnPeeshooterButtonClickEvent, 
-                OnWallnutButtonClickEvent, OnRemovePlantButtonClickEvent, coinsHolder);
+            _gameHud.Initialize(OnPlantButtonClickEvent, OnRemovePlantButtonClickEvent, coinsHolder);
         }
     }
 }

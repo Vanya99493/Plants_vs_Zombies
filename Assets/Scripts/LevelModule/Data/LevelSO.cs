@@ -7,8 +7,8 @@ namespace LevelModule
     public class LevelSO : ScriptableObject
     {
         public int StartCoinsAmount;
-        public int CoinFromZombiesSpawnChanceInPercentage;
-        public float CoinFromZombiesLifeTimeInSeconds;
+        public CoinsFromZombieSpawnConfig CoinsFromZombieSpawnConfig;
+        public RandomCoinsSpawnConfig RandomCoinsSpawnConfig;
         public List<Wave> Waves;
     }
 }

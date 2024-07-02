@@ -14,6 +14,7 @@ namespace LevelModule
         [SerializeField] private PlantsSpawnManager _plantsSpawnManager;
         [SerializeField] private ZombiesSpawner _zombiesSpawner;
         [SerializeField] private CoinsSpawner _coinsSpawner;
+        [SerializeField] private RandomCoinsSpawnManager _randomCoinsSpawnManager;
 
         private WavesController _wavesController;
         private CoinsHolder _coinsHolder;
@@ -33,22 +34,32 @@ namespace LevelModule
             LevelSO levelSO = ObjectLoader.LoadLevelSO(_levelDifficultyType);
             _coinsHolder = new CoinsHolder(levelSO.StartCoinsAmount);
             _wavesController = new WavesController(_zombiesSpawner);
+            
             InitializeGameHud();
-            _coinsSpawner.Initialize(_coinsHolder);
-
-            _plantsSpawnManager.SpawnPlantEvent += _coinsHolder.WithdrawCoins;
-            _zombiesSpawner.Initialize(levelSO.CoinFromZombiesSpawnChanceInPercentage, levelSO.CoinFromZombiesLifeTimeInSeconds);
+            InitializeSpawners(levelSO);
             
             _wavesController.StartSpawnZombies(levelSO);
+            _randomCoinsSpawnManager.StartSpawnCoins();
         }
 
         private void InitializeGameHud()
         {
-            _levelUIController.InitializeGameHud(_plantsSpawnManager.SelectPlantType, 
-                _plantsSpawnManager.SelectPlantType, 
-                _plantsSpawnManager.SelectPlantType,
-                _plantsSpawnManager.PlantRemovingSwitch,
-                _coinsHolder);
+            _levelUIController.InitializeGameHud(_plantsSpawnManager.SelectPlantType,
+                _plantsSpawnManager.PlantRemovingSwitch, _coinsHolder);
+        }
+
+        private void InitializeSpawners(LevelSO levelSO)
+        {
+            _coinsSpawner.Initialize(_coinsHolder);
+            _plantsSpawnManager.SpawnPlantEvent += _coinsHolder.WithdrawCoins;
+            _zombiesSpawner.Initialize(levelSO.CoinsFromZombieSpawnConfig.CoinFromZombiesSpawnChanceInPercentage, 
+                levelSO.CoinsFromZombieSpawnConfig.CoinFromZombiesLifeTimeInSeconds,
+                levelSO.CoinsFromZombieSpawnConfig.CoinsFromZombiesToSpawn);
+            _randomCoinsSpawnManager.Initialize(levelSO.RandomCoinsSpawnConfig.LowerTimeSpawnLimit,
+                levelSO.RandomCoinsSpawnConfig.UpperTimeSpawnLimit,
+                levelSO.RandomCoinsSpawnConfig.CoinsToSpawn,
+                levelSO.RandomCoinsSpawnConfig.CoinLifeTime,
+                levelSO.RandomCoinsSpawnConfig.CoinMoveSpeed);
         }
     }
 }

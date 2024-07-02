@@ -13,8 +13,16 @@ MonoBehaviour:
   m_Name: EasyLevelSO
   m_EditorClassIdentifier: 
   StartCoinsAmount: 1000
-  CoinFromZombiesSpawnChanceInPercentage: 20
-  CoinFromZombiesLifeTimeInSeconds: 10
+  CoinsFromZombieSpawnConfig:
+    CoinFromZombiesSpawnChanceInPercentage: 20
+    CoinFromZombiesLifeTimeInSeconds: 10
+    CoinsFromZombiesToSpawn: 25
+  RandomCoinsSpawnConfig:
+    LowerTimeSpawnLimit: 5
+    UpperTimeSpawnLimit: 10
+    CoinsToSpawn: 25
+    CoinLifeTime: 0
+    CoinMoveSpeed: 5
   Waves:
   - WaveTime: 10
     ZombiesDuringWave:

@@ -10,14 +10,12 @@ namespace UIModule.LevelModule
         [SerializeField] private PlantButton _peeshooterButton;
         [SerializeField] private PlantButton _wallnutButton;
         
-        public void Initialize(Action<PlantType> OnSunflowerButtonClickEvent, 
-            Action<PlantType> OnPeeshooterButtonClickEvent, 
-            Action<PlantType> OnWallnutButtonClickEvent,
+        public void Initialize(Action<PlantType> onPlantButtonClickEvent, 
             CoinsHolder coinsHolder)
         {
-            _sunflowerButton.Initialize(OnSunflowerButtonClickEvent);
-            _peeshooterButton.Initialize(OnPeeshooterButtonClickEvent);
-            _wallnutButton.Initialize(OnWallnutButtonClickEvent);
+            _sunflowerButton.Initialize(onPlantButtonClickEvent);
+            _peeshooterButton.Initialize(onPlantButtonClickEvent);
+            _wallnutButton.Initialize(onPlantButtonClickEvent);
 
             coinsHolder.ChangeCoinsEvent += _sunflowerButton.UpdateButton;
             coinsHolder.ChangeCoinsEvent += _peeshooterButton.UpdateButton;

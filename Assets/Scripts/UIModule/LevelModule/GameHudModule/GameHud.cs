@@ -12,17 +12,11 @@ namespace UIModule.LevelModule
         [SerializeField] private Button _removePlantButton;
         [SerializeField] private TextMeshProUGUI _coinsShower;
 
-        public void Initialize(Action<PlantType> onSunflowerButtonClickEvent, 
-            Action<PlantType> onPeeshooterButtonClickEvent, 
-            Action<PlantType> onWallnutButtonClickEvent,
+        public void Initialize(Action<PlantType> OnPlantButtonClickEvent, 
             Action onRemovePlantButtonClickEvent,
             CoinsHolder coinsHolder)
         {
-            _plantsButtonsPanel.Initialize(onSunflowerButtonClickEvent, 
-                onPeeshooterButtonClickEvent, 
-                onWallnutButtonClickEvent, 
-                coinsHolder);
-            
+            _plantsButtonsPanel.Initialize(OnPlantButtonClickEvent, coinsHolder);
             _removePlantButton.onClick.AddListener(() => onRemovePlantButtonClickEvent?.Invoke());
             
             UpdateCoinsShower(coinsHolder.Coins);

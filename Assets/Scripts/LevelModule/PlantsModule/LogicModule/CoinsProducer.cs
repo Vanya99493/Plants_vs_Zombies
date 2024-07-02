@@ -13,12 +13,14 @@ namespace LevelModule
         private CoinsSpawner _coinsSpawner;
         private int _coinsToProduce;
         private float _coinsSpawnDelay;
+        private float _coinsLifeTime;
         
         private void Awake()
         {
             var plantSO = ObjectLoader.LoadPlantSO(_plantType);
             _coinsToProduce = plantSO.CoinsToSpawn;
             _coinsSpawnDelay = plantSO.CoinsSpawnDelay;
+            _coinsLifeTime = plantSO.CoinsLifeTime; 
 
             StartCoroutine(CoinsSpawnCoroutine());
         }
@@ -32,9 +34,19 @@ namespace LevelModule
         {
             while (true)
             {
+                Debug.Log("spawning process start");
                 yield return new WaitForSeconds(_coinsSpawnDelay);
-                var coin = _coinsSpawner.SpawnCoin(_spawnPositionTransform.position);
+                var coin = _coinsLifeTime == 0
+                    ? _coinsSpawner.SpawnCoin(_spawnPositionTransform.position)
+                    : _coinsSpawner.SpawnCoinForTime(_spawnPositionTransform.position, _coinsLifeTime);
                 coin.Initialize(_coinsToProduce);
+                Debug.Log("coin spawned");
+
+                while (coin != null)
+                {
+                    Debug.Log("wait");
+                    yield return null;
+                }
             }
         }
     }

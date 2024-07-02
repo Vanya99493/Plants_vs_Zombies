@@ -22,5 +22,16 @@ namespace LevelModule
 
             return spawnedCoin;
         }
+
+        public Coin SpawnCoinForTime(Vector3 spawnPosition, float lifeTime)
+        {
+            Coin spawnedCoin = Instantiate(_coinPrefab, _parentToSpawn);
+            spawnedCoin.transform.position = spawnPosition;
+            spawnedCoin.PickUpEvent += _coinsHolder.AddCoins;
+            
+            Destroy(spawnedCoin.gameObject, lifeTime);
+
+            return spawnedCoin;
+        }
     }
 }

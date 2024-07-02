@@ -22,3 +22,4 @@ MonoBehaviour:
   RegeneratePerSecond: 0
   CoinsToSpawn: 25
   CoinsSpawnDelay: 10
+  CoinsLifeTime: 5

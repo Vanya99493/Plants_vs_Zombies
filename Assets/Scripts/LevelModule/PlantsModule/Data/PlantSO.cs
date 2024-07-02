@@ -16,5 +16,6 @@ namespace LevelModule
         [Header("Coin production")] 
         public int CoinsToSpawn;
         public int CoinsSpawnDelay;
+        public float CoinsLifeTime;
     }
 }

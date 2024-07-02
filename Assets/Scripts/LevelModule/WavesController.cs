@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 using CustomClasses;
 using Interfaces;
-using PlaygroundModule;
 using UnityEngine;
-using ZombiesModule;
 
 namespace LevelModule
 {

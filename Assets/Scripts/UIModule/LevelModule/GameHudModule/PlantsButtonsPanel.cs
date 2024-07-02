@@ -1,6 +1,5 @@
 ﻿using System;
 using LevelModule;
-using PlantsModule;
 using UnityEngine;
 
 namespace UIModule.LevelModule

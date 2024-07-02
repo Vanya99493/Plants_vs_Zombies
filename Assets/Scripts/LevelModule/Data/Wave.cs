@@ -1,6 +1,5 @@
 ﻿using System;
 using CustomClasses;
-using ZombiesModule;
 
 namespace LevelModule
 {

@@ -1,6 +1,5 @@
 ﻿using Infrastructure;
 using ObjectLoaderModule;
-using PlaygroundModule;
 using UIModule.LevelModule;
 using UnityEngine;
 
@@ -11,8 +10,10 @@ namespace LevelModule
         [SerializeField] private LevelDifficultyType _levelDifficultyType;
         [SerializeField] private DIContainer _diContainer;
         [SerializeField] private LevelUIController _levelUIController;
+        [Header("Spawners")]
         [SerializeField] private PlantsSpawnManager _plantsSpawnManager;
         [SerializeField] private ZombiesSpawner _zombiesSpawner;
+        [SerializeField] private CoinsSpawner _coinsSpawner;
 
         private WavesController _wavesController;
         private CoinsHolder _coinsHolder;
@@ -33,6 +34,7 @@ namespace LevelModule
             _coinsHolder = new CoinsHolder(levelSO.StartCoinsAmount);
             _wavesController = new WavesController(_zombiesSpawner);
             InitializeGameHud();
+            _coinsSpawner.Initialize(_coinsHolder);
 
             _plantsSpawnManager.SpawnPlantEvent += _coinsHolder.WithdrawCoins;
             

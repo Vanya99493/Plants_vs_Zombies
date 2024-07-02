@@ -15,14 +15,16 @@ namespace LevelModule
         private BulletsSpawner _bulletsSpawner;
         private int _damage;
         private float _bulletSpeed;
+        private float _shotsDelay;
         private Coroutine _shootCoroutine;
         
         private void Awake()
         {
             var plantSO = ObjectLoader.LoadPlantSO(_plantType);
 
-            _damage = plantSO.Damage;
-            _bulletSpeed = plantSO.BulletSpeed;
+            _damage = plantSO.DamageConfig.Damage;
+            _bulletSpeed = plantSO.DamageConfig.BulletSpeed;
+            _shotsDelay = 1f / plantSO.DamageConfig.ShotsPerSecond;
             
             _shooterTrigger.TriggerEnterEvent += OnTriggerEvent;
             _shooterTrigger.TriggerExitEvent += OnTriggerEvent;
@@ -51,7 +53,7 @@ namespace LevelModule
             while (true)
             {
                 Shoot();
-                yield return new WaitForSeconds(1f);
+                yield return new WaitForSeconds(_shotsDelay);
             }
         }
 

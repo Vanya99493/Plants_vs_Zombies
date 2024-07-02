@@ -18,9 +18,9 @@ namespace LevelModule
         private void Awake()
         {
             var plantSO = ObjectLoader.LoadPlantSO(_plantType);
-            _coinsToProduce = plantSO.CoinsToSpawn;
-            _coinsSpawnDelay = plantSO.CoinsSpawnDelay;
-            _coinsLifeTime = plantSO.CoinsLifeTime; 
+            _coinsToProduce = plantSO.CoinGenerateConfig.CoinsToSpawn;
+            _coinsSpawnDelay = plantSO.CoinGenerateConfig.CoinsSpawnDelay;
+            _coinsLifeTime = plantSO.CoinGenerateConfig.CoinsLifeTime; 
 
             StartCoroutine(CoinsSpawnCoroutine());
         }

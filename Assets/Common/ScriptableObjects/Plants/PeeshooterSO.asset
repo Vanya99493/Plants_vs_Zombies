@@ -16,9 +16,11 @@ MonoBehaviour:
   Icon: {fileID: 0}
   Price: 100
   HealthPoints: 7
-  Damage: 1
-  Distance: 10
-  BulletSpeed: 4
-  RegeneratePerSecond: 0
-  CoinsToSpawn: 0
-  CoinsSpawnDelay: 0
+  DamageConfig:
+    Damage: 1
+    BulletSpeed: 0.25
+    ShotsPerSecond: 0.5
+  CoinGenerateConfig:
+    CoinsToSpawn: 0
+    CoinsSpawnDelay: 0
+    CoinsLifeTime: 0

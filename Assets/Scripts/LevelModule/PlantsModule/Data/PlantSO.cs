@@ -9,13 +9,7 @@ namespace LevelModule
         public Sprite Icon;
         public int Price;
         public int HealthPoints;
-        public int Damage;
-        public int Distance;
-        public float BulletSpeed;
-        public float RegeneratePerSecond;
-        [Header("Coin production")] 
-        public int CoinsToSpawn;
-        public int CoinsSpawnDelay;
-        public float CoinsLifeTime;
+        public DamageConfig DamageConfig;
+        public CoinGenerateConfig CoinGenerateConfig;
     }
 }

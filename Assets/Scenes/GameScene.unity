@@ -1788,6 +1788,7 @@ MonoBehaviour:
   - {fileID: 192984287}
   - {fileID: 106618215}
   _parentToSpawnTrasnofrm: {fileID: 1680359974}
+  _coinsSpawner: {fileID: 1617825778}
 --- !u!1 &1923324950
 GameObject:
   m_ObjectHideFlags: 0

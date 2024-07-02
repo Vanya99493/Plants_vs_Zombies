@@ -34,17 +34,14 @@ namespace LevelModule
         {
             while (true)
             {
-                Debug.Log("spawning process start");
                 yield return new WaitForSeconds(_coinsSpawnDelay);
                 var coin = _coinsLifeTime == 0
                     ? _coinsSpawner.SpawnCoin(_spawnPositionTransform.position)
                     : _coinsSpawner.SpawnCoinForTime(_spawnPositionTransform.position, _coinsLifeTime);
                 coin.Initialize(_coinsToProduce);
-                Debug.Log("coin spawned");
 
                 while (coin != null)
                 {
-                    Debug.Log("wait");
                     yield return null;
                 }
             }

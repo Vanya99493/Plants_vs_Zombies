@@ -37,6 +37,7 @@ namespace LevelModule
             _coinsSpawner.Initialize(_coinsHolder);
 
             _plantsSpawnManager.SpawnPlantEvent += _coinsHolder.WithdrawCoins;
+            _zombiesSpawner.Initialize(levelSO.CoinFromZombiesSpawnChanceInPercentage, levelSO.CoinFromZombiesLifeTimeInSeconds);
             
             _wavesController.StartSpawnZombies(levelSO);
         }

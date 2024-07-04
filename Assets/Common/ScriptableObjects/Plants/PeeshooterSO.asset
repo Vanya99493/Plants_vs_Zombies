@@ -18,7 +18,7 @@ MonoBehaviour:
   HealthPoints: 7
   DamageConfig:
     Damage: 1
-    BulletSpeed: 0.25
+    BulletSpeed: 5
     ShotsPerSecond: 0.5
   CoinGenerateConfig:
     CoinsToSpawn: 0

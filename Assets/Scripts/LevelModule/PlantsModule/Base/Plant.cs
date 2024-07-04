@@ -25,5 +25,9 @@ namespace LevelModule
             }
         }
 
+        public void Destroy()
+        {
+            DestroyEvent?.Invoke(this);
+        }
     }
 }

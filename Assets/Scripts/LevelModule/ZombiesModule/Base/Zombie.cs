@@ -64,5 +64,10 @@ namespace LevelModule
             Vector3 direction = new(-1f, 0f, 0f);
             transform.position += direction * (Time.fixedDeltaTime * _speed);
         }
+        
+        public void Destroy()
+        {
+            DestroyEvent?.Invoke(this);
+        }
     }
 }

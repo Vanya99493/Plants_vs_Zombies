@@ -1,4 +1,5 @@
 ﻿using LevelModule;
+using LevelModule.GrassCutterModule.Data;
 using UnityEngine;
 
 namespace ObjectLoaderModule
@@ -8,6 +9,7 @@ namespace ObjectLoaderModule
         private const string LEVELS_SO_NAME = "LevelsSO";
         private const string PLANTS_SO_NAME = "PlantsSO";
         private const string ZOMBIES_SO_NAME = "ZombiesSO";
+        private const string GRASS_CUTTER_SO_NAME = "GrassCutterSO";
         
         public static LevelSO LoadLevelSO(LevelDifficultyType levelDifficultyType)
         {
@@ -25,6 +27,12 @@ namespace ObjectLoaderModule
         {
             ZombiesSO zombiesSO = Resources.Load<ZombiesSO>(ZOMBIES_SO_NAME);
             return zombiesSO.Zombies[zombieType];
+        }
+
+        public static GrassCutterSO LoadGrassCutterSO()
+        {
+            GrassCutterSO grassCutterSO = Resources.Load<GrassCutterSO>(GRASS_CUTTER_SO_NAME);
+            return grassCutterSO;
         }
     }
 }

@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc237ce973e84495b33b479abac07fd3, type: 3}
+  m_Name: HelmetArmouredSO
+  m_EditorClassIdentifier: 
+  Prefab: {fileID: -3258865069885871498, guid: 1869c7f6b6b288e4a9d773ca1a56b6b9, type: 3}
+  HealthPoints: 15
+  Damage: 1
+  Distance: 0.1
+  Speed: 0.3

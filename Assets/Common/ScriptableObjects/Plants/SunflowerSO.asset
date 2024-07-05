@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13bb317b3814442a87dbd16e5b65fb77, type: 3}
   m_Name: SunflowerSO
   m_EditorClassIdentifier: 
-  Prefab: {fileID: 1342518526509859376, guid: a4adf2d829c2aae448736e0cb99d9d50, type: 3}
+  Prefab: {fileID: 586222507477611478, guid: 225448f443b7ccd458b45245d8d2ef11, type: 3}
   Icon: {fileID: 0}
   Price: 50
   HealthPoints: 5

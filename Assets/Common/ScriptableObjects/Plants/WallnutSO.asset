@@ -12,13 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13bb317b3814442a87dbd16e5b65fb77, type: 3}
   m_Name: WallnutSO
   m_EditorClassIdentifier: 
-  Prefab: {fileID: 6414314567813545834, guid: 5a070fb2ba3801446b4137defabbd6a5, type: 3}
+  Prefab: {fileID: 1186817329938253997, guid: 691d1e7f613e26e4191e6e03a40aaba7, type: 3}
   Icon: {fileID: 0}
   Price: 125
   HealthPoints: 20
-  Damage: 0
-  Distance: 0
-  BulletSpeed: 0
-  RegeneratePerSecond: 0
-  CoinsToSpawn: 0
-  CoinsSpawnDelay: 0
+  DamageConfig:
+    Damage: 0
+    BulletSpeed: 0
+    ShotsPerSecond: 0
+  CoinGenerateConfig:
+    CoinsToSpawn: 0
+    CoinsSpawnDelay: 0
+    CoinsLifeTime: 0

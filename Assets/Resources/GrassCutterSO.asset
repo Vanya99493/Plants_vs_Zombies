@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f95b14de316d45d98ddfecc68c79121f, type: 3}
   m_Name: GrassCutterSO
   m_EditorClassIdentifier: 
-  Speed: 0
+  Speed: 7
   TriggerLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 192

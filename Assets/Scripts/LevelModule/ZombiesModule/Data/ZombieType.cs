@@ -5,6 +5,6 @@
         None,
         Simple,
         ConeArmoured,
-        BucketArmoured
+        HelmetArmoured
     }
 }

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13bb317b3814442a87dbd16e5b65fb77, type: 3}
   m_Name: PeeshooterSO
   m_EditorClassIdentifier: 
-  Prefab: {fileID: 7513052410588000633, guid: dec64ffbb42e333419fccbf9ac623bb2, type: 3}
+  Prefab: {fileID: 7959116233407891633, guid: b90ecfdba5333fd4490f75e25db04db8, type: 3}
   Icon: {fileID: 0}
   Price: 100
   HealthPoints: 7

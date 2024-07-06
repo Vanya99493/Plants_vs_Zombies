@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc237ce973e84495b33b479abac07fd3, type: 3}
   m_Name: ConeArmouredSO
   m_EditorClassIdentifier: 
-  Prefab: {fileID: 3607744519884543072, guid: e9313b1ab0e3c9b4ba4e9d347c5e8f94, type: 3}
+  Prefab: {fileID: 8834427874800666001, guid: 5898c80535558e241ae3d773cea9964e, type: 3}
   HealthPoints: 10
   Damage: 1
   Distance: 0.1

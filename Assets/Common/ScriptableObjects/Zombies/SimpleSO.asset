@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc237ce973e84495b33b479abac07fd3, type: 3}
   m_Name: SimpleSO
   m_EditorClassIdentifier: 
-  Prefab: {fileID: 1263032941934535070, guid: cb11f558b7990f94a835da06ac05b41f, type: 3}
+  Prefab: {fileID: 968974863325144417, guid: 847e2a51f2578fc45aaa5905d11944cf, type: 3}
   HealthPoints: 5
   Damage: 1
   Distance: 0.1

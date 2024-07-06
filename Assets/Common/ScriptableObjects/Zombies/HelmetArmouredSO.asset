@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc237ce973e84495b33b479abac07fd3, type: 3}
   m_Name: HelmetArmouredSO
   m_EditorClassIdentifier: 
-  Prefab: {fileID: -3258865069885871498, guid: 1869c7f6b6b288e4a9d773ca1a56b6b9, type: 3}
+  Prefab: {fileID: 4962356984704010814, guid: 31f74b9875cfa6541ab5c89fb125b19a, type: 3}
   HealthPoints: 15
   Damage: 1
   Distance: 0.1

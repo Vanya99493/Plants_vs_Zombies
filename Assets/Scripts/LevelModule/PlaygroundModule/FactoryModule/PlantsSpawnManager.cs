@@ -37,31 +37,36 @@ namespace LevelModule
         {
             if(_selectedPlantType != PlantType.None || _isPlantRemoving)
             {
+#if UNITY_STANDALONE || UNITY_EDITOR
                 if(Input.GetMouseButton(0))
                 {
-                    ThrowRay();
+                    ThrowRay(Input.mousePosition);
                 }
                 if (Input.GetMouseButtonUp(0))
                 {
-                    if(_selectedCell == null)
-                    {
-                        return;
-                    }
-                    _selectedCell.Deactivate();
-                    
-                    if (_isPlantRemoving)
-                    {
-                        ClearCell(_selectedCell);
-                        return;
-                    }
-                    Spawn(_selectedCell);
+                    HandleTouchEnd();
                 }
+#elif UNITY_ANDROID || UNITY_IOS
+                if (Input.touchCount > 0)
+                {
+                    Touch touch = Input.GetTouch(0);
+
+                    if (touch.phase == TouchPhase.Began)
+                    {
+                        ThrowRay(touch.position);
+                    }
+                    else if (touch.phase == TouchPhase.Ended)
+                    {
+                        HandleTouchEnd();
+                    }
+                }
+#endif
             }
         }
 
-        private void ThrowRay()
+        private void ThrowRay(Vector2 clickPosition)
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Ray ray = Camera.main.ScreenPointToRay(clickPosition);
             RaycastHit[] hits = Physics.RaycastAll(ray, Mathf.Infinity);
 
             for (int i = 0; i < hits.Length; i++)
@@ -81,6 +86,22 @@ namespace LevelModule
             
             _selectedCell?.Deactivate();
             _selectedCell = null;
+        }
+
+        private void HandleTouchEnd()
+        {
+            if(_selectedCell == null)
+            {
+                return;
+            }
+            _selectedCell.Deactivate();
+                    
+            if (_isPlantRemoving)
+            {
+                ClearCell(_selectedCell);
+                return;
+            }
+            Spawn(_selectedCell);
         }
 
         private void Spawn(Cell cell)

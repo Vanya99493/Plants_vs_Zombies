@@ -45,7 +45,7 @@ namespace LevelModule
             var zombieSO = ObjectLoader.LoadZombieSO(zombieType);
             var spawnedZombie = Instantiate(zombieSO.Prefab, _parentToSpawnTrasnofrm);
             spawnedZombie.transform.position = spawnPosition;
-            spawnedZombie.Initialize(zombieSO.HealthPoints, zombieSO.Speed, zombieSO.Damage);
+            spawnedZombie.Initialize(zombieSO.HealthPoints);
             spawnedZombie.DestroyEvent += OnZombieDestroy;
             return spawnedZombie;
         }

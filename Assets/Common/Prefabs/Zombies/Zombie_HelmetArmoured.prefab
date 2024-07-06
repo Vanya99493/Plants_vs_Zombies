@@ -370,6 +370,7 @@ GameObject:
   - component: {fileID: 200157904188016882}
   - component: {fileID: 1096066697517745486}
   - component: {fileID: -3258865069885871498}
+  - component: {fileID: 5907007731817974157}
   m_Layer: 7
   m_Name: Zombie_HelmetArmoured
   m_TagString: Untagged
@@ -476,6 +477,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ded6857be78fc04496fea157d2144da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5907007731817974157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1807931793052807659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51b7099132ce4cecaed2fbdb3aeecc6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _zombieType: 3
   _zombieTrigger: {fileID: 1969590404407104777}
 --- !u!1 &1892678062787739269
 GameObject:

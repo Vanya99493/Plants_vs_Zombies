@@ -705,6 +705,7 @@ GameObject:
   - component: {fileID: 3431334918661221288}
   - component: {fileID: 2245709171414724018}
   - component: {fileID: 3607744519884543072}
+  - component: {fileID: 8560560460849995782}
   m_Layer: 7
   m_Name: Zombie_ConeArmoured
   m_TagString: Untagged
@@ -811,6 +812,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53050e41fe2e43f4aa8d3c083248d97b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8560560460849995782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3402870802814722061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51b7099132ce4cecaed2fbdb3aeecc6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _zombieType: 2
   _zombieTrigger: {fileID: 8727114572039926324}
 --- !u!1 &3456337188312562634
 GameObject:

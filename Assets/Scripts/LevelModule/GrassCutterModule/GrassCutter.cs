@@ -1,4 +1,5 @@
-﻿using Interfaces;
+﻿using System;
+using Interfaces;
 using ObjectLoaderModule;
 using UnityEngine;
 
@@ -6,6 +7,8 @@ namespace LevelModule.GrassCutterModule
 {
     public class GrassCutter : MonoBehaviour
     {
+        public event Action StartMoveEvent;
+        
         [SerializeField] private GrassCutterTrigger _grassCutterTrigger;
 
         private float _currentSpeed;
@@ -25,6 +28,7 @@ namespace LevelModule.GrassCutterModule
             if (_currentSpeed == 0)
             {
                 _currentSpeed = _maxSpeed;
+                StartMoveEvent?.Invoke();
             }
 
             if (collidedObject.TryGetComponent<IDestroyable>(out var destroyableObject))

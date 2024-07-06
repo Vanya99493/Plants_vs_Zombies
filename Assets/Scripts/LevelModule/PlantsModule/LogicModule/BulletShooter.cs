@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using Infrastructure;
 using ObjectLoaderModule;
 using UnityEngine;
@@ -7,6 +8,8 @@ namespace LevelModule
 {
     public class BulletShooter : MonoBehaviour
     {
+        public event Action ShootEvent;
+        
         [SerializeField] private PlantType _plantType;
         [SerializeField] private ShooterTrigger _shooterTrigger;
         [SerializeField] private Transform _bulletsSpawnTransform;
@@ -61,6 +64,7 @@ namespace LevelModule
         {
             var bullet = _bulletsSpawner.SpawnBullet(_bulletsSpawnTransform.position);
             bullet.Initialize(_collidedLayerMask, transform.right, _bulletSpeed, _damage);
+            ShootEvent?.Invoke();
         }
     }
 }

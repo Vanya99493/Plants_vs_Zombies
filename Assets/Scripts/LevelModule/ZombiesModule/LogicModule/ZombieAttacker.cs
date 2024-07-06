@@ -1,4 +1,5 @@
-﻿using Interfaces;
+﻿using System;
+using Interfaces;
 using ObjectLoaderModule;
 using UnityEngine;
 
@@ -6,6 +7,8 @@ namespace LevelModule
 {
     public class ZombieAttacker : MonoBehaviour
     {
+        public event Action<bool> AttackingEvent;
+        
         [SerializeField] private ZombieType _zombieType;
         [SerializeField] private ZombieTrigger _zombieTrigger;
         
@@ -29,10 +32,12 @@ namespace LevelModule
         {
             if (_trackedObject == null)
             {
+                AttackingEvent?.Invoke(false);
                 Move();
                 return;
             }
 
+            AttackingEvent?.Invoke(true);
             if (_reloadTime <= 0)
             {
                 if (_trackedObject.TryGetComponent(out IDamagable damagableObject))

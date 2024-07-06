@@ -1,4 +1,5 @@
 ﻿using System;
+using Infrastructure;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,6 +14,7 @@ namespace UIModule.MainMenuModule
         {
             _backButton.onClick.AddListener(() => OnBackButtonClick?.Invoke());
             _volumeSlider.onValueChanged.AddListener(newValue => OnVolumeSliderChange?.Invoke(newValue));
+            _volumeSlider.value = AudioVolumeController.Instance.CurrentVolume;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using Infrastructure;
 using ObjectLoaderModule;
 using UnityEngine;
@@ -7,6 +8,8 @@ namespace LevelModule
 {
     public class CoinsProducer : MonoBehaviour
     {
+        public event Action ProduceCoinEvent;
+        
         [SerializeField] private Transform _spawnPositionTransform;
         [SerializeField] private PlantType _plantType;
 
@@ -39,6 +42,7 @@ namespace LevelModule
                     ? _coinsSpawner.SpawnCoin(_spawnPositionTransform.position)
                     : _coinsSpawner.SpawnCoinForTime(_spawnPositionTransform.position, _coinsLifeTime);
                 coin.Initialize(_coinsToProduce);
+                ProduceCoinEvent?.Invoke();
 
                 while (coin != null)
                 {

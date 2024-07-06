@@ -1,5 +1,4 @@
 ﻿using Infrastructure.SceneLoaderModule;
-using LevelModule;
 using UIModule.MainMenuModule;
 using UnityEngine;
 
@@ -28,7 +27,7 @@ namespace Infrastructure
 
         private void OnChangeVolume(float newVolume)
         {
-            Debug.Log($"New volume: {newVolume}");
+            AudioVolumeController.Instance.TryChangeVolume(this, newVolume);
         }
 
         private void OnLoadLevel()

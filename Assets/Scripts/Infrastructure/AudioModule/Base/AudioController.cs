@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Infrastructure.AudioModule.Base
 {
@@ -17,6 +18,11 @@ namespace Infrastructure.AudioModule.Base
         protected virtual void OnChangeVolume(float newVolume)
         {
             _audioSource.volume = newVolume;
+        }
+
+        protected void OnDestroy()
+        {
+            AudioVolumeController.Instance.ChangeVolumeEvent -= OnChangeVolume;
         }
     }
 }

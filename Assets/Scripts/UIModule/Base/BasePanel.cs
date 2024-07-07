@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace UIModule.MainMenuModule
+namespace UIModule
 {
     [RequireComponent(typeof(CanvasGroup))]
     public class BasePanel : MonoBehaviour

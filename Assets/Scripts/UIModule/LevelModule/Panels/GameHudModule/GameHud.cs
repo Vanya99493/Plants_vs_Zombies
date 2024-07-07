@@ -7,18 +7,21 @@ using UnityEngine.UI;
 
 namespace UIModule.LevelModule
 {
-    public class GameHud : MonoBehaviour
+    public class GameHud : BasePanel
     {
         [SerializeField] private PlantsButtonsPanel _plantsButtonsPanel;
         [SerializeField] private Button _removePlantButton;
+        [SerializeField] private Button _pauseButton;
         [SerializeField] private TextMeshProUGUI _coinsShower;
 
         public void Initialize(Action<PlantType> OnPlantButtonClickEvent, 
-            Action onRemovePlantButtonClickEvent,
+            Action OnRemovePlantButtonClickEvent,
+            Action OnPauseButtonClick,
             CoinsHolder coinsHolder)
         {
             _plantsButtonsPanel.Initialize(OnPlantButtonClickEvent, coinsHolder);
-            _removePlantButton.onClick.AddListener(() => onRemovePlantButtonClickEvent?.Invoke());
+            _removePlantButton.onClick.AddListener(() => OnRemovePlantButtonClickEvent?.Invoke());
+            _pauseButton.onClick.AddListener(() => OnPauseButtonClick?.Invoke());
             
             UpdateCoinsShower(coinsHolder.Coins);
             coinsHolder.ChangeCoinsEvent += UpdateCoinsShower;

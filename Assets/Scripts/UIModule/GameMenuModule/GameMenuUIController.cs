@@ -14,8 +14,7 @@ namespace UIModule.MainMenuModule
             _mainMenuPanel.Initialize(
                 () => _selectDifficultyPanel.ActivatePanel(),
                 () => _settingsPanel.ActivatePanel(),
-                OnExitButtonClick
-                );
+                OnExitButtonClick);
             _mainMenuPanel.ActivatePanel();
         }
 

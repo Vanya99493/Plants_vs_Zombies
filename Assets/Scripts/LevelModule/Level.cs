@@ -1,12 +1,16 @@
 ﻿using Infrastructure;
+using Infrastructure.SceneLoaderModule;
 using ObjectLoaderModule;
 using UIModule.LevelModule;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace LevelModule
 {
     public class Level : MonoBehaviour
     {
+        private const int MAIN_SCENE_INDEX = 0;
+        
         [SerializeField] private LevelDifficultyType _levelDifficultyType;
         [SerializeField] private DIContainer _diContainer;
         [SerializeField] private LevelUIController _levelUIController;
@@ -25,7 +29,7 @@ namespace LevelModule
             {
                 _diContainer.Initialize();
             }
-            
+
             StartLevel();
         }
         
@@ -35,17 +39,44 @@ namespace LevelModule
             _coinsHolder = new CoinsHolder(levelSO.StartCoinsAmount);
             _wavesController = new WavesController(_zombiesSpawner);
             
-            InitializeGameHud();
+            InitializeUI();
             InitializeSpawners(levelSO);
             
             _wavesController.StartSpawnZombies(levelSO);
             _randomCoinsSpawnManager.StartSpawnCoins();
         }
 
-        private void InitializeGameHud()
+        private void InitializeUI()
         {
             _levelUIController.InitializeGameHud(_plantsSpawnManager.SelectPlantType,
-                _plantsSpawnManager.PlantRemovingSwitch, _coinsHolder);
+                _plantsSpawnManager.PlantRemovingSwitch, 
+                PauseGame,
+                _coinsHolder);
+            _levelUIController.InitializePauseMenu(ResumeGame, RestartLevel, ExitLevel);
+        }
+
+        private void PauseGame()
+        {
+            Time.timeScale = 0;
+        }
+
+        private void ResumeGame()
+        {
+            Time.timeScale = 1f;
+        }
+        
+        private void RestartLevel()
+        {
+            ResumeGame();
+            string currentSceneName = SceneManager.GetActiveScene().name;
+            new SceneLoader().LoadScene(MAIN_SCENE_INDEX);
+            new SceneLoader().LoadScene(currentSceneName);
+        }
+
+        private void ExitLevel()
+        {
+            ResumeGame();
+            new SceneLoader().LoadScene(MAIN_SCENE_INDEX);
         }
 
         private void InitializeSpawners(LevelSO levelSO)

@@ -14,13 +14,18 @@ namespace Infrastructure
         {
             foreach (var service in _servicesList)
             {
-                Services.Add(service.GetType(), service);
+                Services.TryAdd(service.GetType(), service);
             }
         }
 
         public static T GetService<T>() where T : MonoBehaviour
         {
             return Services[typeof(T)] as T;
+        }
+
+        private void OnDestroy()
+        {
+            Services = new();
         }
     }
 }

@@ -1,7 +1,5 @@
 using System;
-using Interfaces;
 using LevelModule.CharactersModule;
-using ObjectLoaderModule;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -12,7 +10,7 @@ namespace LevelModule
         public UnityEvent CompleteActionEvent;
         public event Action<int> SpawnPlantEvent;
 
-        [SerializeField] private Transform _parentToSpawnTransform;
+        [SerializeField] private PlantsSpawner _plantsSpawner;
 
         private PlantType _selectedPlantType;
         private Cell _selectedCell;
@@ -116,13 +114,8 @@ namespace LevelModule
                 return;
             }
 
-            var plantSO = ObjectLoader.LoadPlantSO(_selectedPlantType);
-            var plant = Instantiate(plantSO.Prefab, _parentToSpawnTransform);
-            plant.Initialize(plantSO.HealthPoints);
-            plant.DestroyEvent += OnPlantDestroy;
-            cell.SetPlant(plant);
-            
-            SpawnPlantEvent?.Invoke(plantSO.Price);
+            _plantsSpawner.Spawn(cell, _selectedPlantType, out int price);
+            SpawnPlantEvent?.Invoke(price);
             CompleteActionEvent?.Invoke();
             ResetData();
         }
@@ -139,11 +132,6 @@ namespace LevelModule
             _selectedCell = null;
             _isPlantRemoving = false;
             _selectedPlantType = PlantType.None;
-        }
-
-        private void OnPlantDestroy(IDestroyable plant)
-        {
-            Destroy((plant as Plant)?.gameObject);
         }
     }
 }

@@ -16,9 +16,9 @@ namespace LevelModule.CharactersModule
             _canvasGroup.blocksRaycasts = false;
         }
 
-        private void Start()
+        private void OnEnable()
         {
-            _healthPointsHandler.CauseDamageEvent += UpdateHPBarSlider;
+            _healthPointsHandler.UpdateHealthEvent += UpdateHPBarSlider;
             CheckActiveCondition(_healthPointsHandler.CurrentHealthPoints, _healthPointsHandler.MaxHealthPoints);
         }
 

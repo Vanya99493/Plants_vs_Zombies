@@ -38,7 +38,7 @@ namespace LevelModule
             {
                 return;
             }
-            Destroy(_plantOnCell.gameObject);
+            _plantOnCell.Destroy();
             _plantOnCell = null;
         }
 

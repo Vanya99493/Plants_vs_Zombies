@@ -195,6 +195,60 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8572887420339034752, guid: 298e95959aea14d4e8b57b7b958e84f1, type: 3}
   m_PrefabInstance: {fileID: 6905163801285563703}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &155309770
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 155309771}
+  - component: {fileID: 155309772}
+  m_Layer: 0
+  m_Name: PlantsSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &155309771
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155309770}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1680763725}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &155309772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155309770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bb1730bf4dc435593aac45a0288c4c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _parentToSpawnTransform: {fileID: 574080999}
+  _objectPoolsLengths:
+    list:
+    - Key: 1
+      Value: 5
+    - Key: 2
+      Value: 10
+    - Key: 3
+      Value: 5
+    keyCollision: 0
 --- !u!1001 &169002553
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -631,7 +685,6 @@ Transform:
   - {fileID: 1846232257}
   - {fileID: 1923324952}
   - {fileID: 1617825777}
-  - {fileID: 1465683260}
   m_Father: {fileID: 1005132402}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1383815950 stripped
@@ -664,12 +717,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1465683259}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1114704059}
+  m_Father: {fileID: 1617825777}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1465683261
 MonoBehaviour:
@@ -721,7 +774,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1465683260}
   m_Father: {fileID: 1114704059}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1617825778
@@ -738,6 +792,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _parentToSpawn: {fileID: 311335557}
   _coinPrefab: {fileID: 4011748450581437214, guid: 0dd6ad7a5a0b93245b884bab74d15380, type: 3}
+  _poolLength: 10
 --- !u!1 &1632007859
 GameObject:
   m_ObjectHideFlags: 0
@@ -819,7 +874,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 155309771}
   m_Father: {fileID: 1114704059}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1680763726
@@ -850,7 +906,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _parentToSpawnTransform: {fileID: 574080999}
+  _plantsSpawner: {fileID: 155309772}
 --- !u!4 &1722287377 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1110671736964122538, guid: 298e95959aea14d4e8b57b7b958e84f1, type: 3}
@@ -911,8 +967,17 @@ MonoBehaviour:
   - {fileID: 480118327}
   - {fileID: 192984287}
   - {fileID: 106618215}
-  _parentToSpawnTrasnofrm: {fileID: 1680359974}
+  _parentToSpawnTrasnform: {fileID: 1680359974}
   _coinsSpawner: {fileID: 1617825778}
+  _objectPoolsLengths:
+    list:
+    - Key: 1
+      Value: 10
+    - Key: 2
+      Value: 5
+    - Key: 3
+      Value: 5
+    keyCollision: 0
 --- !u!4 &1847341333 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1937360176963672945, guid: 298e95959aea14d4e8b57b7b958e84f1, type: 3}
@@ -949,6 +1014,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _parentToSpawn: {fileID: 550979944}
   _bulletPrefab: {fileID: 1074076435005983779, guid: d3c7a16f52c422b4d8305c94efc4acb0, type: 3}
+  _poolLength: 15
 --- !u!4 &1923324952
 Transform:
   m_ObjectHideFlags: 0

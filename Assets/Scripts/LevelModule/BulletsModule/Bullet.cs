@@ -1,10 +1,13 @@
-﻿using Interfaces;
+﻿using System;
+using Interfaces;
 using UnityEngine;
 
 namespace LevelModule
 {
-    public class Bullet : MonoBehaviour
+    public class Bullet : MonoBehaviour, IDestroyable
     {
+        public event Action<IDestroyable> DestroyEvent;
+        
         private LayerMask _collidedLayer; 
         private Vector3 _direction;
         private float _speed;
@@ -20,7 +23,10 @@ namespace LevelModule
 
         private void FixedUpdate()
         {
-            transform.position += _direction * (_speed * Time.fixedDeltaTime);
+            if (_speed != 0)
+            {
+                transform.position += _direction * (_speed * Time.fixedDeltaTime);
+            }
         }
 
         private void OnTriggerEnter(Collider other)
@@ -30,9 +36,17 @@ namespace LevelModule
                 if (other.TryGetComponent<IDamagable>(out var collidedObject))
                 {
                     collidedObject.CauseDamage(_damage);
-                    Destroy(gameObject);
+                    Destroy();
                 }
             }
+        }
+
+        public void Destroy()
+        {
+            DestroyEvent?.Invoke(this);
+            _speed = 0;
+
+            DestroyEvent = null;
         }
     }
 }

@@ -42,15 +42,16 @@ namespace LevelModule
                     : _coinsSpawner.SpawnCoinForTime(spawnPosition, _coinsLifeTime);
                 spawnedCoin.Initialize(_coinsToSpawn);
                 
-                StartCoroutine(MoveCoinCoroutine(spawnedCoin));
+                Coroutine moveCoroutine = StartCoroutine(MoveCoinCoroutine(spawnedCoin));
+                spawnedCoin.DestroyEvent += coin => StopCoroutine(moveCoroutine);
             }
         }
 
         private IEnumerator MoveCoinCoroutine(Coin coinToMove)
         {
-            while (coinToMove != null)
+            while (coinToMove.enabled)
             {
-                coinToMove.transform.Translate(-Vector3.forward * (_coinSpeed * Time.fixedDeltaTime));
+                coinToMove.transform.Translate(-Vector3.forward * (_coinSpeed * Time.deltaTime));
                 yield return null;
             }
         }

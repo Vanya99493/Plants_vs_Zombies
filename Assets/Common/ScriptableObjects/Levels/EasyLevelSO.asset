@@ -22,50 +22,38 @@ MonoBehaviour:
     UpperTimeSpawnLimit: 10
     CoinsToSpawn: 25
     CoinLifeTime: 0
-    CoinMoveSpeed: 0.25
+    CoinMoveSpeed: 0.5
   Waves:
-  - WaveTime: 10
+  - WaveTime: 1
     ZombiesDuringWave:
       list:
       - Key: 1
-        Value: 7
-      - Key: 2
-        Value: 2
-      - Key: 3
         Value: 1
       keyCollision: 0
     ZombiesDuringFinalWaveFight:
       list:
       - Key: 1
-        Value: 8
-      - Key: 2
         Value: 2
       keyCollision: 0
-  - WaveTime: 10
+  - WaveTime: 1
     ZombiesDuringWave:
       list:
       - Key: 1
-        Value: 3
-      keyCollision: 0
-    ZombiesDuringFinalWaveFight:
-      list:
-      - Key: 1
-        Value: 3
-      - Key: 2
-        Value: 1
-      keyCollision: 0
-  - WaveTime: 10
-    ZombiesDuringWave:
-      list:
-      - Key: 1
-        Value: 2
-      - Key: 2
         Value: 1
       keyCollision: 0
     ZombiesDuringFinalWaveFight:
       list:
       - Key: 1
-        Value: 3
-      - Key: 2
         Value: 2
+      keyCollision: 0
+  - WaveTime: 1
+    ZombiesDuringWave:
+      list:
+      - Key: 1
+        Value: 1
+      keyCollision: 0
+    ZombiesDuringFinalWaveFight:
+      list:
+      - Key: 2
+        Value: 6
       keyCollision: 0

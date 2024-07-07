@@ -17,15 +17,21 @@ namespace LevelModule.CharactersModule
         private int _coinsToProduce;
         private float _coinsSpawnDelay;
         private float _coinsLifeTime;
+        private Coroutine _coinProduceCoroutine;
         
-        private void Awake()
+        private void OnEnable()
         {
             var plantSO = ObjectLoader.LoadPlantSO(_plantType);
             _coinsToProduce = plantSO.CoinGenerateConfig.CoinsToSpawn;
             _coinsSpawnDelay = plantSO.CoinGenerateConfig.CoinsSpawnDelay;
             _coinsLifeTime = plantSO.CoinGenerateConfig.CoinsLifeTime; 
 
-            StartCoroutine(CoinsSpawnCoroutine());
+            _coinProduceCoroutine = StartCoroutine(CoinsSpawnCoroutine());
+        }
+
+        private void OnDisable()
+        {
+            StopCoroutine(_coinProduceCoroutine);
         }
 
         private void Start()
@@ -44,7 +50,7 @@ namespace LevelModule.CharactersModule
                 coin.Initialize(_coinsToProduce);
                 ProduceCoinEvent?.Invoke();
 
-                while (coin != null)
+                while (coin.gameObject.active)
                 {
                     yield return null;
                 }

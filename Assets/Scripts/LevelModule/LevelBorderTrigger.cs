@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Interfaces;
+using UnityEngine;
 
 namespace LevelModule
 {
@@ -6,7 +7,14 @@ namespace LevelModule
     {
         private void OnTriggerExit(Collider other)
         {
-            Destroy(other.gameObject);
+            if (other.TryGetComponent<IDestroyable>(out var destroyableObject))
+            {
+                destroyableObject.Destroy();
+            }
+            else
+            {
+                Destroy(other.gameObject);
+            }
         }
     }
 }

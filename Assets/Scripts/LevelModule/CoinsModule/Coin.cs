@@ -4,8 +4,9 @@ using UnityEngine;
 
 namespace LevelModule
 {
-    public class Coin : MonoBehaviour, IClickable
+    public class Coin : MonoBehaviour, IClickable, IDestroyable
     {
+        public event Action<IDestroyable> DestroyEvent;
         public event Action<int> PickUpEvent; 
 
         public int Coins { get; private set; }
@@ -18,7 +19,15 @@ namespace LevelModule
         public void Click()
         {
             PickUpEvent?.Invoke(Coins);
-            Destroy(gameObject);
+            Destroy();
+        }
+
+        public void Destroy()
+        {
+            DestroyEvent?.Invoke(this);
+
+            DestroyEvent = null;
+            PickUpEvent = null;
         }
     }
 }

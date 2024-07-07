@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using LevelModule.CharactersModule;
+using UnityEngine;
 
 namespace LevelModule
 {

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using CustomClasses;
 using Interfaces;
+using LevelModule.CharactersModule;
 using UnityEngine;
 
 namespace LevelModule

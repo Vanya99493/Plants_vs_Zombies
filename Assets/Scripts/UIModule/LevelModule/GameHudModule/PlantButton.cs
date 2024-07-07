@@ -1,5 +1,5 @@
 ﻿using System;
-using LevelModule;
+using LevelModule.CharactersModule;
 using ObjectLoaderModule;
 using TMPro;
 using UnityEngine;

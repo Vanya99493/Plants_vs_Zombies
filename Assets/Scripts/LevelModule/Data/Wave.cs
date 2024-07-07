@@ -1,5 +1,6 @@
 ﻿using System;
 using CustomClasses;
+using LevelModule.CharactersModule;
 
 namespace LevelModule
 {

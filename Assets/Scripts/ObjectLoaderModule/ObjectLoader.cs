@@ -1,4 +1,5 @@
 ﻿using LevelModule;
+using LevelModule.CharactersModule;
 using LevelModule.GrassCutterModule.Data;
 using UnityEngine;
 

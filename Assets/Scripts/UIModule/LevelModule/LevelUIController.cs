@@ -1,5 +1,6 @@
 ﻿using System;
 using LevelModule;
+using LevelModule.CharactersModule;
 using UnityEngine;
 
 namespace UIModule.LevelModule

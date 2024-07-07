@@ -1,5 +1,6 @@
 using System;
 using Interfaces;
+using LevelModule.CharactersModule;
 using ObjectLoaderModule;
 using UnityEngine;
 using UnityEngine.Events;

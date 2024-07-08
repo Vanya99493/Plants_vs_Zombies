@@ -22,7 +22,7 @@ MonoBehaviour:
     UpperTimeSpawnLimit: 10
     CoinsToSpawn: 25
     CoinLifeTime: 0
-    CoinMoveSpeed: 0.5
+    CoinMoveSpeed: 0.75
   Waves:
   - WaveTime: 1
     ZombiesDuringWave:

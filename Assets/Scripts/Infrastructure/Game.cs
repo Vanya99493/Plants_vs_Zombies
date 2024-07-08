@@ -21,6 +21,7 @@ namespace Infrastructure
         private void InitializeUI()
         {
             _gameMenuUIController.InitializeMainMenu(OnExitGame);
+            _gameMenuUIController.InitializePlantsReviewMenu();
             _gameMenuUIController.InitializeSettingsMenu(OnChangeVolume);
             _gameMenuUIController.InitializeSelectDifficultyMenu(OnLoadLevel, OnDifficultyChange);
         }

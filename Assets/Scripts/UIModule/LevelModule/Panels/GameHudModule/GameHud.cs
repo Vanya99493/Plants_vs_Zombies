@@ -1,7 +1,6 @@
 ﻿using System;
 using LevelModule;
 using LevelModule.CharactersModule;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,7 +11,7 @@ namespace UIModule.LevelModule
         [SerializeField] private PlantsButtonsPanel _plantsButtonsPanel;
         [SerializeField] private Button _removePlantButton;
         [SerializeField] private Button _pauseButton;
-        [SerializeField] private TextMeshProUGUI _coinsShower;
+        [SerializeField] private CoinsShower _coinsShower;
 
         public void Initialize(Action<PlantType> OnPlantButtonClickEvent, 
             Action OnRemovePlantButtonClickEvent,
@@ -29,7 +28,7 @@ namespace UIModule.LevelModule
 
         private void UpdateCoinsShower(int newCoinsAmount)
         {
-            _coinsShower.text = newCoinsAmount.ToString();
+            _coinsShower.UpdateCoinsText(newCoinsAmount);
         } 
     }
 }

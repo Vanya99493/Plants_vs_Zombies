@@ -15,6 +15,7 @@ namespace UIModule.LevelModule
             Action OnRestartLevelButtonClick,
             Action OnExitToMainMenuButtonClick)
         {
+            _confirmWindow.gameObject.SetActive(true);
             _resumeGameButton.onClick.AddListener(() => OnResumeGameButtonClick?.Invoke());
             _restartLevelButton.onClick.AddListener(() =>
             {

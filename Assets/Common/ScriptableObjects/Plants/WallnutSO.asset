@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13bb317b3814442a87dbd16e5b65fb77, type: 3}
   m_Name: WallnutSO
   m_EditorClassIdentifier: 
+  Name: Barricada
   Prefab: {fileID: 1186817329938253997, guid: 691d1e7f613e26e4191e6e03a40aaba7, type: 3}
-  Icon: {fileID: 21300000, guid: f0029d054fbac8f4cb8524cb8221bf9d, type: 3}
+  Icon: {fileID: 21300000, guid: a40f6679ea92b8a4c9a96f430fd53376, type: 3}
   Price: 125
   HealthPoints: 20
   DamageConfig:
@@ -24,3 +25,4 @@ MonoBehaviour:
     CoinsToSpawn: 0
     CoinsSpawnDelay: 0
     CoinsLifeTime: 0
+  Info: STOP!!!

@@ -15,14 +15,16 @@ namespace LevelModule.CharactersModule
         private float _reloadTime;
         private float _speed;
         private int _damage;
+        private float _shotsDelay;
         private GameObject _trackedObject;
         
         public void Awake()
         {
             var zombieSO = ObjectLoader.LoadZombieSO(_zombieType);
             
-            _speed = zombieSO.Speed;
-            _damage = zombieSO.Damage;
+            _speed = zombieSO.GetAbility<MoveAbilitySO>().Speed;
+            _damage = zombieSO.GetAbility<MeleeAttackAbilitySO>().Damage;
+            _shotsDelay = 1f / zombieSO.GetAbility<MeleeAttackAbilitySO>().ShotsPerSecond;
 
             _zombieTrigger.TriggerEnterEvent += trackedObject => _trackedObject = trackedObject;
             _zombieTrigger.TriggerExitEvent += trackedObject => _trackedObject = trackedObject;
@@ -43,7 +45,7 @@ namespace LevelModule.CharactersModule
                 if (_trackedObject.TryGetComponent(out IDamagable damagableObject))
                 {
                     damagableObject.CauseDamage(_damage);
-                    _reloadTime = 1f;
+                    _reloadTime = _shotsDelay;
                 }
             }
 

@@ -7,17 +7,17 @@ namespace UIModule.MainMenuModule
     public class MainMenuPanel : BasePanel
     {
         [SerializeField] private Button _startGameButton;
-        [SerializeField] private Button _plantsReviewButton;
+        [SerializeField] private Button _bestiaryReviewButton;
         [SerializeField] private Button _settingsButton;
         [SerializeField] private Button _exitGameButton;
         [SerializeField] private ConfirmWindow _confirmWindow;
 
-        public void Initialize(Action OnGameStartButtonClick, Action OnPlantReviewButtonClick,
+        public void Initialize(Action OnGameStartButtonClick, Action OnBestiaryReviewButtonClick,
             Action OnSettingsButtonClick, Action OnExitGameButtonClick)
         {
             _confirmWindow.gameObject.SetActive(true);
             _startGameButton.onClick.AddListener(() => OnGameStartButtonClick?.Invoke());
-            _plantsReviewButton.onClick.AddListener(() => OnPlantReviewButtonClick?.Invoke());
+            _bestiaryReviewButton.onClick.AddListener(() => OnBestiaryReviewButtonClick?.Invoke());
             _settingsButton.onClick.AddListener(() => OnSettingsButtonClick?.Invoke());
             _exitGameButton.onClick.AddListener(() =>
             {

@@ -21,10 +21,10 @@ namespace LevelModule.CharactersModule
         
         private void OnEnable()
         {
-            var plantSO = ObjectLoader.LoadPlantSO(_plantType);
-            _coinsToProduce = plantSO.CoinGenerateConfig.CoinsToSpawn;
-            _coinsSpawnDelay = plantSO.CoinGenerateConfig.CoinsSpawnDelay;
-            _coinsLifeTime = plantSO.CoinGenerateConfig.CoinsLifeTime; 
+            var coinGenerateAbility = ObjectLoader.LoadPlantSO(_plantType).GetAbility<CoinGenerateAbilitySO>();
+            _coinsToProduce = coinGenerateAbility.CoinsToSpawn;
+            _coinsSpawnDelay = coinGenerateAbility.CoinsSpawnDelay;
+            _coinsLifeTime = coinGenerateAbility.CoinsLifeTime; 
 
             _coinProduceCoroutine = StartCoroutine(CoinsSpawnCoroutine());
         }

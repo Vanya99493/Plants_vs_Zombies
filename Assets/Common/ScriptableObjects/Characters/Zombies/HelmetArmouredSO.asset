@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc237ce973e84495b33b479abac07fd3, type: 3}
+  m_Name: HelmetArmouredSO
+  m_EditorClassIdentifier: 
+  Name: Helmet armoured zombie
+  HealthPoints: 15
+  Icon: {fileID: 21300000, guid: b6afb0cda5f1b7a43b54b8ea8ab45a5f, type: 3}
+  Info: Loyal to his lord
+  Abilities:
+  - {fileID: 11400000, guid: 80930d399e1dd1d439789854493432a6, type: 2}
+  - {fileID: 11400000, guid: 7a3e30313e81cc346894b73ac0950f73, type: 2}
+  Prefab: {fileID: 4962356984704010814, guid: 31f74b9875cfa6541ab5c89fb125b19a, type: 3}

@@ -9,11 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc237ce973e84495b33b479abac07fd3, type: 3}
-  m_Name: ConeArmouredSO
+  m_Script: {fileID: 11500000, guid: 84704535f952465386dc86876a393c52, type: 3}
+  m_Name: MeleeAttackAbilitySO
   m_EditorClassIdentifier: 
-  Prefab: {fileID: 8834427874800666001, guid: 5898c80535558e241ae3d773cea9964e, type: 3}
-  HealthPoints: 10
   Damage: 1
   Distance: 0.1
-  Speed: 0.3
+  ShotsPerSecond: 1

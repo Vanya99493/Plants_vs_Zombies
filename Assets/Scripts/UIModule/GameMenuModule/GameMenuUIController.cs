@@ -6,7 +6,7 @@ namespace UIModule.MainMenuModule
     public class GameMenuUIController : MonoBehaviour
     {
         [SerializeField] private MainMenuPanel _mainMenuPanel;
-        [SerializeField] private PlantsReviewPanel _plantsReviewPanel;
+        [SerializeField] private BestiaryReviewPanel _bestiaryReviewPanel;
         [SerializeField] private SettingsPanel _settingsPanel;
         [SerializeField] private SelectDifficultyPanel _selectDifficultyPanel;
 
@@ -15,17 +15,17 @@ namespace UIModule.MainMenuModule
             _mainMenuPanel.gameObject.SetActive(true);
             _mainMenuPanel.Initialize(
                 () => _selectDifficultyPanel.ActivatePanel(),
-                () => _plantsReviewPanel.ActivatePanel(),
+                () => _bestiaryReviewPanel.ActivatePanel(),
                 () => _settingsPanel.ActivatePanel(),
                 OnExitButtonClick);
             _mainMenuPanel.ActivatePanel();
         }
 
-        public void InitializePlantsReviewMenu()
+        public void InitializeBestiaryReviewMenu()
         {
-            _plantsReviewPanel.gameObject.SetActive(true);
-            _plantsReviewPanel.Initialize(() => _plantsReviewPanel.DeactivatePanel());
-            _plantsReviewPanel.DeactivatePanel();
+            _bestiaryReviewPanel.gameObject.SetActive(true);
+            _bestiaryReviewPanel.Initialize(() => _bestiaryReviewPanel.DeactivatePanel());
+            _bestiaryReviewPanel.DeactivatePanel();
         }
 
         public void InitializeSettingsMenu(Action<float> OnVolumeChangeAction)

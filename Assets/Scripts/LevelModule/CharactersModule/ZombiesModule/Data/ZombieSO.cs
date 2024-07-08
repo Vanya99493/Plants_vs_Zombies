@@ -2,13 +2,9 @@
 
 namespace LevelModule.CharactersModule
 {
-    [CreateAssetMenu(fileName = "ZombieSO", menuName = "Zombies/ZombieSO", order = 1)]
-    public class ZombieSO : ScriptableObject
+    [CreateAssetMenu(fileName = "ZombieSO", menuName = "Characters/Zombies/ZombieSO")]
+    public class ZombieSO : CharacterSO
     {
         public Zombie Prefab;
-        public int HealthPoints;
-        public int Damage;
-        public float Distance;
-        public float Speed;
     }
 }

@@ -13,16 +13,10 @@ MonoBehaviour:
   m_Name: SunflowerSO
   m_EditorClassIdentifier: 
   Name: Joe Biden
-  Prefab: {fileID: 586222507477611478, guid: 225448f443b7ccd458b45245d8d2ef11, type: 3}
-  Icon: {fileID: 21300000, guid: 810407411590eba46aec9885c1a76930, type: 3}
-  Price: 50
   HealthPoints: 5
-  DamageConfig:
-    Damage: 0
-    BulletSpeed: 0
-    ShotsPerSecond: 0
-  CoinGenerateConfig:
-    CoinsToSpawn: 25
-    CoinsSpawnDelay: 10
-    CoinsLifeTime: 10
+  Icon: {fileID: 21300000, guid: 810407411590eba46aec9885c1a76930, type: 3}
   Info: Son of the god
+  Abilities:
+  - {fileID: 11400000, guid: 5c9c28e9ea2494e4898148c823b41d9f, type: 2}
+  Prefab: {fileID: 586222507477611478, guid: 225448f443b7ccd458b45245d8d2ef11, type: 3}
+  Price: 50

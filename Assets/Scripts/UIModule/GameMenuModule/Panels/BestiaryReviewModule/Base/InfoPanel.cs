@@ -9,15 +9,13 @@ namespace UIModule.MainMenuModule
     {
         [SerializeField] private Image _iconImage;
         [SerializeField] private TextMeshProUGUI _nameText;
-        [SerializeField] private TextMeshProUGUI _priceText;
         [SerializeField] private TextMeshProUGUI _mainInfoText;
 
-        public void UpdateInfoPanel(PlantSO plantSO)
+        protected void UpdateInfoPanel(CharacterSO characterSO)
         {
-            _iconImage.sprite = plantSO.Icon;
-            _nameText.text = $"Name: {plantSO.Name}";
-            _priceText.text = $"Price: {plantSO.Price.ToString()}";
-            _mainInfoText.text = plantSO.GetInfo();
+            _iconImage.sprite = characterSO.Icon;
+            _nameText.text = $"Name: {characterSO.Name}";
+            _mainInfoText.text = characterSO.GetInfo();
         }
     }
 }

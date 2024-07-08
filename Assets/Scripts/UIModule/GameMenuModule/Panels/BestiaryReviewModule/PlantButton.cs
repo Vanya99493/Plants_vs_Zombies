@@ -6,17 +6,15 @@ using UnityEngine.UI;
 
 namespace UIModule.MainMenuModule
 {
-    [RequireComponent(typeof(Button))]
-    public class PlantButton : MonoBehaviour
+    public class PlantButton : CharacterButton
     {
-        [SerializeField] private Button _button;
         [SerializeField] private PlantType _plantType;
 
         public PlantType PlantType => _plantType;
-        
+
         private void Awake()
         {
-            _button ??= GetComponent<Button>();
+            base.Awake();
             if (_plantType == PlantType.None)
             {
                 gameObject.SetActive(false);

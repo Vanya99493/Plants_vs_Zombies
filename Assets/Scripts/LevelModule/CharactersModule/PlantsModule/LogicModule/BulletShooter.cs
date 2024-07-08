@@ -23,11 +23,11 @@ namespace LevelModule.CharactersModule
         
         private void Awake()
         {
-            var plantSO = ObjectLoader.LoadPlantSO(_plantType);
+            var plantShooterAbility = ObjectLoader.LoadPlantSO(_plantType).GetAbility<RangedAttackAbilitySO>();
 
-            _damage = plantSO.DamageConfig.Damage;
-            _bulletSpeed = plantSO.DamageConfig.BulletSpeed;
-            _shotsDelay = 1f / plantSO.DamageConfig.ShotsPerSecond;
+            _damage = plantShooterAbility.Damage;
+            _bulletSpeed = plantShooterAbility.BulletSpeed;
+            _shotsDelay = 1f / plantShooterAbility.ShotsPerSecond;
             
             _shooterTrigger.TriggerEnterEvent += OnTriggerEvent;
             _shooterTrigger.TriggerExitEvent += OnTriggerEvent;

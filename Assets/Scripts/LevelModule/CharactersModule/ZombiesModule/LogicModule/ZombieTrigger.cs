@@ -1,4 +1,5 @@
 ﻿using System;
+using Interfaces;
 using UnityEngine;
 
 namespace LevelModule.CharactersModule
@@ -18,16 +19,17 @@ namespace LevelModule.CharactersModule
             {
                 _trackedObject = other.gameObject;
                 TriggerEnterEvent?.Invoke(_trackedObject);
+                if (other.TryGetComponent<IDestroyable>(out var destroyableObject))
+                {
+                    destroyableObject.DestroyEvent += OnObjectDestroy;
+                }
             }
         }
 
-        private void OnTriggerExit(Collider other)
+        private void OnObjectDestroy(IDestroyable destroyableObject)
         {
-            if ((_triggerLayer.value & (1 << other.gameObject.layer)) != 0)
-            {
-                _trackedObject = null;
-                TriggerExitEvent?.Invoke(_trackedObject);
-            }
+            _trackedObject = null;
+            TriggerExitEvent?.Invoke(_trackedObject);
         }
     }
 }

@@ -9,6 +9,7 @@ namespace UIModule.LevelModule
     {
         [SerializeField] private GameHud _gameHud;
         [SerializeField] private PauseMenu _pauseMenu;
+        [SerializeField] private GameOverPanel _gameOverPanel;
 
         public void InitializeGameHud(Action<PlantType> OnPlantButtonClickEvent,
             Action OnRemovePlantButtonClickEvent,
@@ -35,6 +36,20 @@ namespace UIModule.LevelModule
                 OnRestartLevelButtonClick,
                 OnExitButtonClick);
             _pauseMenu.DeactivatePanel();
+        }
+
+        public void InitializeGameOverPanel(Action OnRestartLevelButtonClick,
+            Action OnExitLevelButtonClick)
+        {
+            _gameOverPanel.gameObject.SetActive(true);
+            _gameOverPanel.Initialize(OnRestartLevelButtonClick, OnExitLevelButtonClick);
+            _gameOverPanel.DeactivatePanel();
+        }
+
+        public void ActivateGameOverPanel(string gameOVerMessage)
+        {
+            _gameOverPanel.UpdateGameOverText(gameOVerMessage);
+            _gameOverPanel.ActivatePanel();
         }
     }
 }

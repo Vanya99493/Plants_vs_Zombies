@@ -1,14 +1,18 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using CustomClasses;
 using Interfaces;
 using LevelModule.CharactersModule;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace LevelModule
 {
     public class WavesController
     {
+        public event Action WavesEndEvent;
+        
         private ZombiesSpawner _zombiesSpawner;
 
         private int _zombiesToDestroy;
@@ -84,6 +88,8 @@ namespace LevelModule
 
                 _isWaveEnded = false;
             }
+
+            WavesEndEvent?.Invoke();
         }
 
         private List<ZombieType> GetZombiesList(SerializableDictionary<ZombieType, int> zombiesMap)

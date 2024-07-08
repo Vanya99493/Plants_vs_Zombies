@@ -10,10 +10,13 @@ namespace LevelModule
     public class Level : MonoBehaviour
     {
         private const int MAIN_SCENE_INDEX = 0;
+        private const string WIN_LEVEL_MESSAGE = "You win!";
+        private const string LOSE_LEVEL_MESSAGE = "You lose...";
         
         [SerializeField] private LevelDifficultyType _levelDifficultyType;
         [SerializeField] private DIContainer _diContainer;
         [SerializeField] private LevelUIController _levelUIController;
+        [SerializeField] private Headquarters _headquarters; 
         [Header("Spawners")]
         [SerializeField] private PlantsSpawnManager _plantsSpawnManager;
         [SerializeField] private ZombiesSpawner _zombiesSpawner;
@@ -38,6 +41,8 @@ namespace LevelModule
             LevelSO levelSO = ObjectLoader.LoadLevelSO(_levelDifficultyType);
             _coinsHolder = new CoinsHolder(levelSO.StartCoinsAmount);
             _wavesController = new WavesController(_zombiesSpawner);
+            _wavesController.WavesEndEvent += OnWavesEnd;
+            _headquarters.HeadquartersAchieveEvent += OnHeadquartersAchieve;
             
             InitializeUI();
             InitializeSpawners(levelSO);
@@ -53,6 +58,7 @@ namespace LevelModule
                 PauseGame,
                 _coinsHolder);
             _levelUIController.InitializePauseMenu(ResumeGame, RestartLevel, ExitLevel);
+            _levelUIController.InitializeGameOverPanel(RestartLevel, ExitLevel);
         }
 
         private void PauseGame()
@@ -91,6 +97,18 @@ namespace LevelModule
                 levelSO.RandomCoinsSpawnConfig.CoinsToSpawn,
                 levelSO.RandomCoinsSpawnConfig.CoinLifeTime,
                 levelSO.RandomCoinsSpawnConfig.CoinMoveSpeed);
+        }
+
+        private void OnWavesEnd()
+        {
+            PauseGame();
+            _levelUIController.ActivateGameOverPanel(WIN_LEVEL_MESSAGE);
+        }
+
+        private void OnHeadquartersAchieve()
+        {
+            PauseGame();
+            _levelUIController.ActivateGameOverPanel(LOSE_LEVEL_MESSAGE);
         }
     }
 }

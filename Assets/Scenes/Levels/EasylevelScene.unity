@@ -3938,7 +3938,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _parentToSpawn: {fileID: 550979944}
-  _bulletPrefab: {fileID: 1074076435005983779, guid: d3c7a16f52c422b4d8305c94efc4acb0, type: 3}
+  _bulletPrefab: {fileID: 6967513919138123265, guid: 43a06c7948646ec459eb9a46616aa06b, type: 3}
   _poolLength: 15
 --- !u!4 &1923324952
 Transform:
@@ -6061,7 +6061,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 94.05
+  m_fontSize: 75.1
   m_fontSizeBase: 60
   m_fontWeight: 400
   m_enableAutoSizing: 1

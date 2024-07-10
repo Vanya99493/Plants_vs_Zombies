@@ -29,6 +29,7 @@ namespace LevelModule
 
             _plantOnCell = spawnedPlant;
             _plantOnCell.gameObject.transform.position = _spawnTransform.position;
+            _plantOnCell.DestroyEvent += plant => _plantOnCell = null;
             return true;
         }
 

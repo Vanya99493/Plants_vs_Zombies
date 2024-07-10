@@ -3,7 +3,7 @@ using LevelModule.CharactersModule;
 using LevelModule.GrassCutterModule.Data;
 using UnityEngine;
 
-namespace ObjectLoaderModule
+namespace Infrastructure
 {
     public static class ObjectLoader
     {
@@ -14,26 +14,22 @@ namespace ObjectLoaderModule
         
         public static LevelSO LoadLevelSO(LevelDifficultyType levelDifficultyType)
         {
-            LevelsSO levelsSO = Resources.Load<LevelsSO>(LEVELS_SO_NAME);
-            return levelsSO.Levels[levelDifficultyType];
+            return Resources.Load<LevelsSO>(LEVELS_SO_NAME).Levels[levelDifficultyType];
         }
         
         public static PlantSO LoadPlantSO(PlantType plantType)
         {
-            PlantsSO plantsSO = Resources.Load<PlantsSO>(PLANTS_SO_NAME);
-            return plantsSO.Plants[plantType];
+            return Resources.Load<PlantsSO>(PLANTS_SO_NAME).Plants[plantType];
         }
 
         public static ZombieSO LoadZombieSO(ZombieType zombieType)
         {
-            ZombiesSO zombiesSO = Resources.Load<ZombiesSO>(ZOMBIES_SO_NAME);
-            return zombiesSO.Zombies[zombieType];
+            return Resources.Load<ZombiesSO>(ZOMBIES_SO_NAME).Zombies[zombieType];
         }
 
         public static GrassCutterSO LoadGrassCutterSO()
         {
-            GrassCutterSO grassCutterSO = Resources.Load<GrassCutterSO>(GRASS_CUTTER_SO_NAME);
-            return grassCutterSO;
+            return Resources.Load<GrassCutterSO>(GRASS_CUTTER_SO_NAME);;
         }
     }
 }

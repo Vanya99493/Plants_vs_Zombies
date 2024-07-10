@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using Infrastructure;
-using ObjectLoaderModule;
 using UnityEngine;
 
 namespace LevelModule.CharactersModule

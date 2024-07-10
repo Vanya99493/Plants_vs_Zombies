@@ -12,4 +12,68 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fe34b2257ec4cb6947891400cb45ffd, type: 3}
   m_Name: HighLevelSO
   m_EditorClassIdentifier: 
-  Waves: []
+  StartCoinsAmount: 150
+  CoinsFromZombieSpawnConfig:
+    CoinFromZombiesSpawnChanceInPercentage: 20
+    CoinFromZombiesLifeTimeInSeconds: 10
+    CoinsFromZombiesToSpawn: 25
+  RandomCoinsSpawnConfig:
+    LowerTimeSpawnLimit: 5
+    UpperTimeSpawnLimit: 10
+    CoinsToSpawn: 25
+    CoinLifeTime: 0
+    CoinMoveSpeed: 0.75
+  Waves:
+  - WaveTime: 20
+    ZombiesDuringWave:
+      list:
+      - Key: 1
+        Value: 4
+      - Key: 2
+        Value: 1
+      keyCollision: 0
+    ZombiesDuringFinalWaveFight:
+      list:
+      - Key: 1
+        Value: 6
+      - Key: 2
+        Value: 2
+      keyCollision: 0
+  - WaveTime: 20
+    ZombiesDuringWave:
+      list:
+      - Key: 1
+        Value: 5
+      - Key: 2
+        Value: 2
+      - Key: 3
+        Value: 1
+      keyCollision: 0
+    ZombiesDuringFinalWaveFight:
+      list:
+      - Key: 1
+        Value: 4
+      - Key: 2
+        Value: 2
+      - Key: 3
+        Value: 2
+      keyCollision: 0
+  - WaveTime: 20
+    ZombiesDuringWave:
+      list:
+      - Key: 1
+        Value: 8
+      - Key: 2
+        Value: 3
+      - Key: 3
+        Value: 1
+      keyCollision: 0
+    ZombiesDuringFinalWaveFight:
+      list:
+      - Key: 1
+        Value: 9
+      - Key: 2
+        Value: 3
+      - Key: 3
+        Value: 3
+      keyCollision: 0

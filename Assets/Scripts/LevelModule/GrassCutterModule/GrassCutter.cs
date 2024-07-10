@@ -1,6 +1,6 @@
 ﻿using System;
+using Infrastructure;
 using Interfaces;
-using ObjectLoaderModule;
 using UnityEngine;
 
 namespace LevelModule.GrassCutterModule

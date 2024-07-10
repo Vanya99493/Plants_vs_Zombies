@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fe34b2257ec4cb6947891400cb45ffd, type: 3}
   m_Name: EasyLevelSO
   m_EditorClassIdentifier: 
-  StartCoinsAmount: 1000
+  StartCoinsAmount: 500
   CoinsFromZombieSpawnConfig:
     CoinFromZombiesSpawnChanceInPercentage: 20
     CoinFromZombiesLifeTimeInSeconds: 10
@@ -24,36 +24,42 @@ MonoBehaviour:
     CoinLifeTime: 0
     CoinMoveSpeed: 0.75
   Waves:
-  - WaveTime: 1
+  - WaveTime: 15
     ZombiesDuringWave:
       list:
       - Key: 1
-        Value: 1
+        Value: 3
       keyCollision: 0
     ZombiesDuringFinalWaveFight:
       list:
       - Key: 1
-        Value: 2
+        Value: 3
       keyCollision: 0
-  - WaveTime: 1
+  - WaveTime: 20
     ZombiesDuringWave:
       list:
       - Key: 1
-        Value: 1
+        Value: 5
       keyCollision: 0
     ZombiesDuringFinalWaveFight:
       list:
       - Key: 1
-        Value: 2
-      keyCollision: 0
-  - WaveTime: 1
-    ZombiesDuringWave:
-      list:
-      - Key: 1
-        Value: 1
-      keyCollision: 0
-    ZombiesDuringFinalWaveFight:
-      list:
+        Value: 3
       - Key: 2
-        Value: 6
+        Value: 1
+      keyCollision: 0
+  - WaveTime: 20
+    ZombiesDuringWave:
+      list:
+      - Key: 1
+        Value: 4
+      - Key: 2
+        Value: 1
+      keyCollision: 0
+    ZombiesDuringFinalWaveFight:
+      list:
+      - Key: 1
+        Value: 5
+      - Key: 2
+        Value: 2
       keyCollision: 0

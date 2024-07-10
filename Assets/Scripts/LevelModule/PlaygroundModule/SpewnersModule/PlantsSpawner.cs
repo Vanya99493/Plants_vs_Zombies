@@ -4,7 +4,6 @@ using CustomClasses;
 using Infrastructure;
 using Interfaces;
 using LevelModule.CharactersModule;
-using ObjectLoaderModule;
 using UnityEngine;
 
 namespace LevelModule

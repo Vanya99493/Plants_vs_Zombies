@@ -1,5 +1,5 @@
 ﻿using System;
-using ObjectLoaderModule;
+using Infrastructure;
 using UnityEngine;
 
 namespace UIModule.MainMenuModule

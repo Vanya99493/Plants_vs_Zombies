@@ -1,6 +1,5 @@
 ﻿using Infrastructure;
 using Infrastructure.SceneLoaderModule;
-using ObjectLoaderModule;
 using UIModule.LevelModule;
 using UnityEngine;
 using UnityEngine.SceneManagement;

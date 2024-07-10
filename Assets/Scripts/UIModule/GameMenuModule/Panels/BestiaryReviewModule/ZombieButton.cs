@@ -1,6 +1,6 @@
 ﻿using System;
+using Infrastructure;
 using LevelModule.CharactersModule;
-using ObjectLoaderModule;
 using UnityEngine;
 using UnityEngine.UI;
 

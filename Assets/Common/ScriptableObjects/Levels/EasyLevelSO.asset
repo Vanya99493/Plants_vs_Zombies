@@ -23,6 +23,7 @@ MonoBehaviour:
     CoinsToSpawn: 25
     CoinLifeTime: 0
     CoinMoveSpeed: 0.75
+  PrepareTime: 3
   Waves:
   - WaveTime: 15
     ZombiesDuringWave:

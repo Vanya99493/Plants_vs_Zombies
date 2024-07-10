@@ -31,22 +31,32 @@ namespace LevelModule
         
         private IEnumerator SpawnZombies(LevelSO levelSO)
         {
-            float waveTime;
-            List<ZombieType> zombiesTypes;
-            int currentZombieTypeIndex;
-            float waitTime;
-            
             foreach (var wave in levelSO.Waves)
             {
-                waveTime = wave.WaveTime;
-                zombiesTypes = GetZombiesList(wave.ZombiesDuringWave);
-                _zombiesToDestroy = zombiesTypes.Count;
-                _destroyedZombies = 0;
-                currentZombieTypeIndex = 1;
-                
-                foreach (var zombieType in zombiesTypes)
+                yield return new WaitForSeconds(levelSO.PrepareTime);
+                yield return _zombiesSpawner.StartCoroutine(SpawnZombiesDuringWave(wave));
+                _isWaveEnded = false;
+                yield return new WaitForSeconds(levelSO.PrepareTime);
+                yield return _zombiesSpawner.StartCoroutine(SpawnZombiesDuringFinalWave(wave));
+                _isWaveEnded = false;
+            }
+
+            WavesEndEvent?.Invoke();
+        }
+
+        private IEnumerator SpawnZombiesDuringWave(Wave wave)
+        {
+            float waveTime = wave.WaveTime;
+            List<ZombieType> zombiesTypes = GetZombiesList(wave.ZombiesDuringWave);
+            _zombiesToDestroy = zombiesTypes.Count;
+            _destroyedZombies = 0;
+            int currentZombieTypeIndex = 1;
+
+            foreach (var zombieType in zombiesTypes)
+            {
+                if (currentZombieTypeIndex != 1)
                 {
-                    waitTime = currentZombieTypeIndex != _zombiesToDestroy
+                    float waitTime = currentZombieTypeIndex != _zombiesToDestroy
                         ? Random.Range(0.0f, waveTime - waveTime / 10f)
                         : Random.Range(0.0f, waveTime);
                     
@@ -57,39 +67,39 @@ namespace LevelModule
                     waveTime -= waitTime;
                     
                     yield return new WaitForSeconds(waitTime);
-                    Zombie spawnedZombie = _zombiesSpawner.SpawnZombie(zombieType);
-                    spawnedZombie.DestroyEvent += OnZombieDestroy;
-                    
-                    currentZombieTypeIndex++;
                 }
-
-                while (!_isWaveEnded)
-                {
-                    yield return null;
-                }
-                
-                _isWaveEnded = false;
-
-                zombiesTypes = GetZombiesList(wave.ZombiesDuringFinalWaveFight);
-                _zombiesToDestroy = zombiesTypes.Count;
-                _destroyedZombies = 0;
-
-                foreach (var zombieType in zombiesTypes)
-                {
-                    yield return new WaitForSeconds(1f);
-                    Zombie spawnedZombie = _zombiesSpawner.SpawnZombie(zombieType);
-                    spawnedZombie.DestroyEvent += OnZombieDestroy;
-                }
-
-                while (!_isWaveEnded)
-                {
-                    yield return null;
-                }
-
-                _isWaveEnded = false;
+                SpawnZombie(zombieType);
+                currentZombieTypeIndex++;
             }
 
-            WavesEndEvent?.Invoke();
+            while (!_isWaveEnded)
+            {
+                yield return null;
+            }
+        }
+
+        private IEnumerator SpawnZombiesDuringFinalWave(Wave wave)
+        {
+            List<ZombieType> zombiesTypes = GetZombiesList(wave.ZombiesDuringFinalWaveFight);
+            _zombiesToDestroy = zombiesTypes.Count;
+            _destroyedZombies = 0;
+
+            foreach (var zombieType in zombiesTypes)
+            {
+                yield return new WaitForSeconds(1f);
+                SpawnZombie(zombieType);
+            }
+
+            while (!_isWaveEnded)
+            {
+                yield return null;
+            }
+        }
+
+        private void SpawnZombie(ZombieType zombieType)
+        {
+            Zombie spawnedZombie = _zombiesSpawner.SpawnZombie(zombieType);
+            spawnedZombie.DestroyEvent += OnZombieDestroy;
         }
 
         private List<ZombieType> GetZombiesList(SerializableDictionary<ZombieType, int> zombiesMap)

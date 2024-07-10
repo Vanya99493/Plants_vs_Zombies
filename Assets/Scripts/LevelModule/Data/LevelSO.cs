@@ -9,6 +9,8 @@ namespace LevelModule
         public int StartCoinsAmount;
         public CoinsFromZombieSpawnConfig CoinsFromZombieSpawnConfig;
         public RandomCoinsSpawnConfig RandomCoinsSpawnConfig;
+        [Header("Waves settings")] 
+        public float PrepareTime;
         public List<Wave> Waves;
     }
 }

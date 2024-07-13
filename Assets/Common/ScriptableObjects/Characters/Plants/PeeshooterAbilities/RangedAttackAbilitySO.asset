@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: RangedAttackAbilitySO
   m_EditorClassIdentifier: 
   Damage: 1
-  BulletSpeed: 5
+  BulletSpeed: 8
   ShotsPerSecond: 0.5

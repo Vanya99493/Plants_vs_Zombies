@@ -12,6 +12,7 @@ namespace LevelModule.CharactersModule
         [SerializeField] private PlantType _plantType;
         [SerializeField] private ShooterTrigger _shooterTrigger;
         [SerializeField] private Transform _bulletsSpawnTransform;
+        [SerializeField] private Transform _particlesSpawnTransform;
         [SerializeField] private LayerMask _collidedLayerMask;
         
         private BulletsSpawner _bulletsSpawner;
@@ -61,7 +62,9 @@ namespace LevelModule.CharactersModule
 
         private void Shoot()
         {
-            var bullet = _bulletsSpawner.SpawnBullet(_bulletsSpawnTransform.position);
+            var bullet = _particlesSpawnTransform != null
+                ? _bulletsSpawner.SpawnBullet(_bulletsSpawnTransform.position, _particlesSpawnTransform.position)
+                : _bulletsSpawner.SpawnBullet(_bulletsSpawnTransform.position);
             bullet.Initialize(_collidedLayerMask, transform.right, _bulletSpeed, _damage);
             ShootEvent?.Invoke();
         }

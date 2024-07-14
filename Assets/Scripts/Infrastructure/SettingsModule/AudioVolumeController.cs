@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Infrastructure
+namespace Infrastructure.SettingsModule
 {
     public class AudioVolumeController
     {

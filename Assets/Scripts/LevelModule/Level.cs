@@ -1,4 +1,5 @@
-﻿using Infrastructure;
+﻿using Infrastructure.DIModule;
+using Infrastructure.ObjectLoaderModule;
 using Infrastructure.SceneLoaderModule;
 using UIModule.LevelModule;
 using UnityEngine;

@@ -1,7 +1,7 @@
-﻿using System;
+﻿using Infrastructure.SettingsModule;
 using UnityEngine;
 
-namespace Infrastructure.AudioModule.Base
+namespace Infrastructure.AudioModule
 {
     [RequireComponent(typeof(AudioSource))]
     public abstract class AudioController : MonoBehaviour

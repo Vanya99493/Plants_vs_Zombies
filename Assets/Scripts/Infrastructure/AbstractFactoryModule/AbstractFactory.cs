@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Infrastructure
+namespace Infrastructure.AbstractFactoryModule
 {
     public abstract class AbstractFactory<T>
     {

@@ -1,5 +1,6 @@
 ﻿using System;
 using Infrastructure;
+using Infrastructure.SettingsModule;
 using UnityEngine;
 using UnityEngine.UI;
 

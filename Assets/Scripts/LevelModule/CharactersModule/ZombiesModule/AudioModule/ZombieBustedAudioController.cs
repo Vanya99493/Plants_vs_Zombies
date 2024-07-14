@@ -1,7 +1,8 @@
 ﻿using System.Collections;
 using CustomClasses;
 using Infrastructure;
-using Infrastructure.AudioModule.Base;
+using Infrastructure.AudioModule;
+using Infrastructure.SettingsModule;
 using UnityEngine;
 
 namespace LevelModule.CharactersModule

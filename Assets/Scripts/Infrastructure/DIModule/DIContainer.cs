@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Infrastructure
+namespace Infrastructure.DIModule
 {
     public class DIContainer : MonoBehaviour
     {

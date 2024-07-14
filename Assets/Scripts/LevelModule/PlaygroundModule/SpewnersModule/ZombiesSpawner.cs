@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using CustomClasses;
 using Infrastructure;
+using Infrastructure.ObjectLoaderModule;
+using Infrastructure.ObjectPoolModule;
 using Interfaces;
 using LevelModule.CharactersModule;
 using UnityEngine;

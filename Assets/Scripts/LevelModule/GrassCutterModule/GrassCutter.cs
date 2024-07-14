@@ -1,5 +1,5 @@
 ﻿using System;
-using Infrastructure;
+using Infrastructure.ObjectLoaderModule;
 using Interfaces;
 using UnityEngine;
 

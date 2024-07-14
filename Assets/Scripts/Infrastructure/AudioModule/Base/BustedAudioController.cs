@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Infrastructure.AudioModule.Base
+namespace Infrastructure.AudioModule
 {
     public class BustedAudioController : AudioController
     {

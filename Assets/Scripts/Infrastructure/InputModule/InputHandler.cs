@@ -1,7 +1,7 @@
 ﻿using Interfaces;
 using UnityEngine;
 
-namespace Infrastructure
+namespace Infrastructure.InputModule
 {
     public class InputHandler : MonoBehaviour
     {

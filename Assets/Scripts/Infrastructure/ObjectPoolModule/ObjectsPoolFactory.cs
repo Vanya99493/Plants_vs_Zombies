@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using Infrastructure.AbstractFactoryModule;
+using UnityEngine;
 
-namespace Infrastructure
+namespace Infrastructure.ObjectPoolModule
 {
     public class ObjectsPoolFactory<T> : AbstractFactory<T> where T : MonoBehaviour
     {

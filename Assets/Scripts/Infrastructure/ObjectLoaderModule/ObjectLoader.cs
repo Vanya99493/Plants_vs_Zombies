@@ -3,7 +3,7 @@ using LevelModule.CharactersModule;
 using LevelModule.GrassCutterModule.Data;
 using UnityEngine;
 
-namespace Infrastructure
+namespace Infrastructure.ObjectLoaderModule
 {
     public static class ObjectLoader
     {

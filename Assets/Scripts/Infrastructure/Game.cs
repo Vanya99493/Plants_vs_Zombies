@@ -1,4 +1,5 @@
 ﻿using Infrastructure.SceneLoaderModule;
+using Infrastructure.SettingsModule;
 using UIModule.MainMenuModule;
 using UnityEngine;
 
@@ -7,6 +8,7 @@ namespace Infrastructure
     public class Game : MonoBehaviour
     {
         [SerializeField] private GameMenuUIController _gameMenuUIController;
+        [SerializeField] private int _firstLevelSceneIndex = 1;
 
         private SceneLoader _sceneLoader;
         private int _selectedLevelIndex;
@@ -33,10 +35,7 @@ namespace Infrastructure
 
         private void OnLoadLevel()
         {
-            // *****
-            // *****
-            // *****
-            _sceneLoader.LoadScene(_selectedLevelIndex + 1);
+            _sceneLoader.LoadScene(_selectedLevelIndex + _firstLevelSceneIndex);
         }
 
         private void OnDifficultyChange(float newDifficultyIndex)
